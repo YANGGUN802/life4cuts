@@ -56,22 +56,24 @@ header.sec{background:none;box-shadow:none;padding:6px 6px 10px}
 .bar{position:sticky;bottom:0;background:linear-gradient(transparent,var(--pn) 28%);padding:20px 0 14px;display:flex;gap:8px}.bar .ghost{margin:0;flex:0 0 auto}.bar .pri{flex:1;width:auto}
 dialog{border:0;border-radius:24px;background:var(--pn);color:var(--tx);padding:18px;width:min(92vw,400px)}
 dialog::backdrop{background:rgba(40,16,50,.62);backdrop-filter:blur(6px)}
-dialog img{display:block;max-height:64dvh;max-width:100%;margin:0 auto 14px;box-shadow:0 10px 30px rgba(0,0,0,.3)}
+dialog img{display:block;max-height:56dvh;max-width:100%;margin:0 auto 14px;box-shadow:0 10px 30px rgba(0,0,0,.3)}
 dialog .btns{display:flex;gap:8px}
 .sz{margin:12px 0 4px}.szh{display:flex;justify-content:space-between;align-items:baseline;color:var(--mu)}.szh output{font:400 19px "Jua",sans-serif;color:var(--ac)}.szh output::after{content:" / 10";font:400 12px "Noto Sans KR",sans-serif;color:var(--mu)}
 .szr{display:flex;align-items:center;gap:8px}.szr input{flex:1;min-width:0;accent-color:var(--ac)}
 .pm{flex:none;width:34px;height:34px;border-radius:50%;border:1.5px solid var(--ln);background:var(--card);color:var(--ac);font-size:20px;line-height:1;padding:0;cursor:pointer}.pm:disabled{opacity:.4;cursor:default}.pm:active:not(:disabled){transform:scale(.92)}
 [hidden]{display:none!important}
-#busy{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);z-index:1000;max-width:84vw;text-align:center;background:rgba(42,33,64,.94);color:#fff;padding:20px 28px;border-radius:20px;font:400 18px/1.4 "Jua",sans-serif;box-shadow:0 18px 40px rgba(0,0,0,.4)}
-.iab{display:flex;gap:10px;align-items:center;justify-content:space-between;margin:8px 0 0;padding:10px 12px;border-radius:14px;background:#fff3e0;border:1px solid #f1d3a5;font-size:13px;line-height:1.45;color:#6b4a14}
-.iab button{flex:none;background:#2a2140;color:#fff;border:0;border-radius:999px;padding:8px 12px;font-weight:700;font-size:12.5px;cursor:pointer}
+#busy{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);z-index:1000;width:max-content;max-width:84vw;text-align:center;background:rgba(42,33,64,.94);color:#fff;padding:20px 28px;border-radius:20px;font:400 18px/1.4 "Jua",sans-serif;box-shadow:0 18px 40px rgba(0,0,0,.4)}
+.iab{flex:none;display:flex;gap:10px;align-items:center;justify-content:space-between;padding:6px 14px;background:var(--pn);border-top:1px solid var(--ln);font-size:12px;line-height:1.4;color:var(--mu)}
+.iab button{flex:none;background:none;color:var(--mu);border:1px solid var(--ln);border-radius:999px;padding:4px 10px;font-size:12px;cursor:pointer}
 .szh output:empty::after{content:""}
+.tip{margin:0 0 12px;padding:11px 14px;border-radius:14px;background:var(--g);color:#fff;text-align:center;font:400 18px/1.4 "Jua",sans-serif;box-shadow:0 8px 18px -10px rgba(255,95,162,.8)}.tip b{font-weight:400;text-decoration:underline;text-underline-offset:3px}
+dialog .btns .ghost{flex:none;white-space:nowrap}
 @media (max-width:899px){.app{grid-template-columns:minmax(112px,38%) minmax(0,1fr)}.stage{padding:12px 10px}.panel{padding:6px 10px 0}.deco{display:none}.top{padding:12px 16px 8px}h1{font-size:28px}.lead{font-size:12.5px}.sec{padding:14px;border-radius:20px}.slots{gap:6px}.chip.em{font-size:22px}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
-<header class="top"><h1>인생네컷 메이커</h1><p class="lead">사진을 올리면 네컷 스트립이 뚝딱! 사진은 이 기기 안에서만 처리되고 어디에도 올라가지 않아요.</p><div class="iab" hidden><span>카카오톡·네이버 같은 앱 안에서는 이미지 저장이 막힐 수 있어요. 기본 브라우저에서 열면 잘 저장돼요.</span><button id="ex">기본 브라우저로 열기</button></div></header>
+<header class="top"><h1>인생네컷 메이커</h1><p class="lead">사진을 올리면 네컷 스트립이 뚝딱! 사진은 이 기기 안에서만 처리되고 어디에도 올라가지 않아요.</p></header>
 <main class="app">
 <section class="stage"><i class="deco" style="--x:7%;--y:8%;--r:-14deg" aria-hidden="true">💗</i><i class="deco" style="--x:84%;--y:7%;--r:12deg" aria-hidden="true">⭐</i><i class="deco" style="--x:5%;--y:76%;--r:10deg" aria-hidden="true">🎀</i><i class="deco" style="--x:86%;--y:68%;--r:-10deg" aria-hidden="true">🌸</i><i class="deco" style="--x:10%;--y:42%;--r:-6deg" aria-hidden="true">✨</i><i class="deco" style="--x:82%;--y:40%;--r:16deg" aria-hidden="true">🍒</i>
 <div class="strip"><canvas id="cv" width="1200" height="4060" aria-label="네컷 미리보기"></canvas></div></section>
@@ -86,10 +88,11 @@ dialog .btns{display:flex;gap:8px}
 <div class="bar"><button class="ghost" id="pv">이전</button><button class="pri" id="nx">다음 단계</button></div>
 </aside>
 </main>
+<div class="iab" hidden><span>앱 안에서는 이미지 저장이 막힐 수 있어요.</span><button id="ex">기본 브라우저로 열기</button></div>
 <input type="file" id="fs" accept="image/*" multiple hidden>
 <input type="file" id="fi" accept="image/*" multiple hidden>
-<div id="busy" hidden role="status" aria-live="polite">이미지를 만드는 중이에요…</div>
-<dialog id="dlg"><img id="out" alt="완성된 인생네컷"><p class="hint" style="text-align:center;margin:0 0 12px">파일 저장이 안 되면 이미지를 <b>길게 눌러</b> 저장해 주세요. 카카오톡·네이버 같은 앱 안에서는 저장이 막힐 수 있어요.</p><button class="ghost" id="ex2" hidden style="margin:0 0 12px;width:100%">기본 브라우저(Chrome·Safari)로 열기</button><div class="btns"><button class="pri" id="dls">파일로 저장</button><button class="ghost" id="dlx" style="margin:0">닫기</button></div></dialog>
+<div id="busy" hidden role="status" aria-live="polite">이미지를 만드는<br>중이에요…</div>
+<dialog id="dlg"><p id="tip" class="tip"></p><img id="out" alt="완성된 인생네컷"><p id="dh" class="hint" hidden style="text-align:center;margin:0 0 12px">카카오톡·네이버 같은 앱 안에서는 저장 버튼이 막힐 수 있어요. 이미지를 길게 눌러 저장해 주세요.</p><div class="btns"><button class="pri" id="dls">파일로 저장</button><button class="ghost" id="dlx" style="margin:0">닫기</button></div></dialog>
 <script>
 const W=600,H=2030,PAD=36,PX=36,CW=528,CH=420,GAP=18,$=i=>document.getElementById(i);
 const BG=[["아이보리","#f6f1e7","#3a3326"],["화이트","#ffffff","#2a2a33"],["베이지","#e8d7c0","#4a3a28"],["베이비핑크","#f9d3dc","#5a2a3a"],["핫핑크","#ff4f9a","#ffffff"],["코랄","#ff8f87","#ffffff"],["살구","#ffd9bf","#5a3320"],["버터","#fbeaa6","#4a3d0b"],["레몬","#fff27a","#5a4b00"],["연두","#e2f2b5","#3a4a12"],["민트","#cfeee3","#1f4a3d"],["하늘","#cfe6ff","#1f3a63"],["라벤더","#d9d1f5","#34295e"],["라일락","#c9a7f5","#2e1a54"],["체리","#8e1b2f","#ffe9ee"],["와인","#5b1a35","#ffe3ee"],["모카","#8a6a56","#fff3e6"],["딥그린","#1f4d3a","#e6f5ec"],["네이비","#17224d","#e8ecff"],["차콜","#2c2c34","#f0f0f4"],["블랙","#141414","#f2efe9"],["노을","#ffd9c2|#d9c9ff","#4a2f4f"],["새벽","#bcd4ff|#ffd0e6","#26305a"],["복숭아","#ffe3d1|#ffb6c8","#5a2e3a"],["벚꽃","#ffeef6|#ffc2dc","#6a2a45"],["오로라","#a8f0e0|#c3b0ff","#23305a"],["라임소다","#f3ffb0|#9ff0c8","#1f4a35"],["바다","#9fd8ff|#6a8cff","#10234f"],["석양","#ffc58a|#ff7eb6","#4a1f3d"]];
@@ -188,12 +191,16 @@ cv.onpointerup=()=>{if(drag&&drag.t=="c"&&!S.c[drag.i].b&&drag.m<6)pick(drag.i);
 cv.addEventListener("wheel",e=>{const k=S.c[S.sel];if(!k.b)return;e.preventDefault();zset(k.z*(e.deltaY<0?1.06:.94))},{passive:false});
 addEventListener("dragover",e=>e.preventDefault());addEventListener("drop",e=>{e.preventDefault();add(e.dataTransfer.files,null)});
 const inApp=()=>/KAKAOTALK|NAVER\(inapp|Instagram|FBAN|FBAV|Line\/|DaumApps|; wv\)/i.test(navigator.userAgent||""),isMob=()=>/Android|iPhone|iPad|iPod/i.test(navigator.userAgent||"")||(navigator.maxTouchPoints>1&&/Mac/.test(navigator.platform||""));
-let DU="";
+let DU="",DM="dl";
 async function exp(){await Promise.all([document.fonts.load('56px "'+FONTS[S.ft][1]+'"',S.cap+S.dv+"0123456789.-/ 인생네컷"),document.fonts.load('44px "Jua"',"인생네컷 ✦")]);const o=document.createElement("canvas");o.width=W*2;o.height=H*2;draw(o.getContext("2d"),2,false);DU=isMob()||inApp()?o.toDataURL("image/jpeg",.95):"";return new Promise(r=>o.toBlob(r,"image/png"))}
-$("save").onclick=async()=>{if($("save").disabled)return;$("save").disabled=true;$("busy").hidden=false;try{await new Promise(r=>requestAnimationFrame(()=>setTimeout(r,40)));blob=await exp();if(!blob)throw new Error("blob");$("out").src=DU||URL.createObjectURL(blob);$("busy").hidden=true;$("dlg").showModal()}catch(e){console.error(e);alert("이미지를 만들지 못했어요. Chrome·Safari 같은 기본 브라우저에서 다시 시도해 주세요.")}finally{$("busy").hidden=true;$("save").disabled=false}};
-$("dls").onclick=async()=>{if(DL){try{await DL.save({filename:"life4cut.png",data:blob})}catch(e){}return}const f=new File([blob],"life4cut.png",{type:"image/png"});try{if(isMob()&&navigator.canShare&&navigator.canShare({files:[f]})){await navigator.share({files:[f],title:"인생네컷"});return}}catch(e){if(e&&e.name=="AbortError")return}const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="life4cut.png";document.body.appendChild(a);a.click();a.remove()};
+$("save").onclick=async()=>{if($("save").disabled)return;$("save").disabled=true;$("busy").hidden=false;try{await new Promise(r=>requestAnimationFrame(()=>setTimeout(r,40)));blob=await exp();if(!blob)throw new Error("blob");$("out").src=DU||URL.createObjectURL(blob);const f0=new File([blob],"life4cut.png",{type:"image/png"}),cs=!!(isMob()&&navigator.canShare&&navigator.canShare({files:[f0]}));DM=DL||!inApp()?"dl":cs?"share":"none";$("dls").hidden=DM=="none";$("dls").textContent=DM=="share"?"이미지 공유":"파일로 저장";$("tip").innerHTML=isMob()?"👆 이미지를 <b>길게 눌러</b> 저장하세요":"아래 <b>파일로 저장</b> 버튼을 눌러 저장하세요";$("dh").hidden=!inApp();$("busy").hidden=true;$("dlg").showModal()}catch(e){console.error(e);alert("이미지를 만들지 못했어요. Chrome·Safari 같은 기본 브라우저에서 다시 시도해 주세요.")}finally{$("busy").hidden=true;$("save").disabled=false}};
+$("dls").onclick=async()=>{if(DL){try{await DL.save({filename:"life4cut.png",data:blob})}catch(e){}return}
+const f=new File([blob],"life4cut.png",{type:"image/png"});
+if(DM=="share"){try{await navigator.share({files:[f],title:"인생네컷"})}catch(e){}return}
+const u=URL.createObjectURL(blob),a=document.createElement("a");a.href=u;a.download="life4cut.png";document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),4000);
+$("tip").innerHTML="저장을 요청했어요 ✔<br>안 되면 이미지를 <b>길게 눌러</b> 저장하세요"};
 function openExt(){const u=location.href.split("#")[0],ua=navigator.userAgent||"";if(/KAKAOTALK/i.test(ua))location.href="kakaotalk://web/openExternal?url="+encodeURIComponent(u);else if(/Android/i.test(ua))location.href="intent://"+u.replace(/^https?:\/\//,"")+"#Intent;scheme=https;package=com.android.chrome;end";else alert("화면의 메뉴(⋮ 또는 공유 아이콘)에서 '다른 브라우저로 열기' 또는 'Safari에서 열기'를 선택해 주세요.")}
-$("ex").onclick=$("ex2").onclick=openExt;if(inApp()){$("ex2").hidden=false;document.querySelectorAll(".iab").forEach(e=>e.hidden=false)}
+$("ex").onclick=openExt;if(inApp())document.querySelectorAll(".iab").forEach(e=>e.hidden=false);
 $("dlx").onclick=()=>$("dlg").close();
 (async()=>{try{DL=await claude.use("downloads")}catch(e){}})();
 ui();Promise.all([document.fonts.load('44px "Jua"',"인생네컷"),document.fonts.load('500 26px "Noto Sans KR"',"+ 사진 추가"),document.fonts.load('56px "Jua"',"0123456789.-")]).then(render).catch(()=>{});
