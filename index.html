@@ -17,10 +17,10 @@
 html,body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.55 "Noto Sans KR",system-ui,sans-serif}
 body{display:flex;flex-direction:column;height:100dvh;overflow:hidden}
 .top{background:var(--pn);padding:14px 28px 8px}.top h1{margin:0 0 4px}
-.tabs{position:sticky;top:0;z-index:5;display:grid;grid-template-columns:repeat(6,1fr);gap:2px;background:var(--pn);padding:4px 0 8px}.tabs button{border:0;background:none;border-radius:12px;padding:5px 0;font-size:11px;line-height:1.25;color:var(--mu);cursor:pointer}.tabs button span{display:block;font-size:19px}.tabs button[aria-current=true]{background:var(--card);color:var(--ac);font-weight:700;box-shadow:0 6px 14px -8px rgba(190,80,160,.6)}
+.tabs{position:sticky;top:0;z-index:5;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:2px;background:var(--pn);padding:4px 0 8px}.tabs button{border:0;background:none;border-radius:12px;padding:5px 0;font-size:11px;line-height:1.25;color:var(--mu);cursor:pointer}.tabs button span{display:block;font-size:19px}.tabs button[aria-current=true]{background:var(--card);color:var(--ac);font-weight:700;box-shadow:0 6px 14px -8px rgba(190,80,160,.6)}
 button,input{font:inherit;color:inherit}
 :focus-visible{outline:2px solid var(--ac);outline-offset:2px}
-.app{flex:1;min-height:0;display:grid;grid-template-columns:1fr 410px;grid-template-rows:minmax(0,1fr)}
+.app{flex:1;min-height:0;display:grid;grid-template-columns:minmax(0,1fr) 410px;grid-template-rows:minmax(0,1fr)}
 .stage{position:relative;overflow:hidden;min-height:0;display:grid;place-items:center;padding:34px;background:var(--bg2)}
 .stage::before{content:"";position:absolute;inset:0;opacity:var(--bo);background:radial-gradient(40% 35% at 14% 12%,#ffc2df,transparent 72%),radial-gradient(38% 34% at 90% 18%,#cfc2ff,transparent 72%),radial-gradient(46% 40% at 82% 94%,#bfe3ff,transparent 72%),radial-gradient(40% 36% at 8% 90%,#fff0b3,transparent 72%)}
 .stage::after{content:"";position:absolute;inset:0;pointer-events:none;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='110' height='110'%3E%3Cpath d='M30 18l4 11 11 4-11 4-4 11-4-11-11-4 11-4z' fill='%23ff7eb6' fill-opacity='.4'/%3E%3Ccircle cx='86' cy='74' r='5' fill='%238f7bff' fill-opacity='.3'/%3E%3C/svg%3E")}
@@ -28,7 +28,7 @@ button,input{font:inherit;color:inherit}
 .strip{position:relative;z-index:2;display:flex}
 #cv{height:auto;width:auto;max-height:60dvh;max-width:100%;touch-action:none;cursor:grab;box-shadow:0 40px 64px -26px rgba(120,40,140,.55),0 10px 20px rgba(120,40,140,.2);animation:rise .8s cubic-bezier(.2,.8,.2,1)}
 @keyframes rise{from{opacity:0;transform:translateY(28px)}}
-.panel{background:var(--pn);min-height:0;overflow:auto;padding:8px 18px 0}
+.panel{background:var(--pn);min-height:0;min-width:0;overflow:auto;overflow-x:hidden;padding:8px 18px 0}
 h1{font:400 38px/1.15 "Jua",sans-serif;margin:0 0 8px;background:var(--g);-webkit-background-clip:text;background-clip:text;color:transparent}
 h2{font:400 19px/1.2 "Jua",sans-serif;margin:0 0 12px}
 .lead{color:var(--mu);margin:0;font-size:14px}
@@ -37,8 +37,8 @@ header.sec{background:none;box-shadow:none;padding:6px 6px 10px}
 .pri{width:100%;border:0;border-radius:16px;background:var(--g);color:#fff;padding:14px 18px;font:400 19px "Jua",sans-serif;cursor:pointer;box-shadow:0 12px 22px -10px rgba(255,95,162,.8);transition:transform .15s}
 .pri:active{transform:scale(.97)}.pri:disabled{opacity:.5}
 .ghost{border:1.5px solid var(--ln);background:none;border-radius:12px;padding:8px 13px;cursor:pointer;margin:10px 8px 0 0}
-.slots{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin:14px 0}
-.slot{aspect-ratio:1;border-radius:16px;border:2px dashed #ffb3d4;background:var(--bg2) center/cover;position:relative;display:grid;place-items:center;color:var(--ac);font-size:26px;cursor:pointer}
+.slots{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin:14px 0}
+.slot{min-width:0;aspect-ratio:1;border-radius:16px;border:2px dashed #ffb3d4;background:var(--bg2) center/cover;position:relative;display:grid;place-items:center;color:var(--ac);font-size:26px;cursor:pointer}
 .slot.on{border:3px solid var(--ac)}
 .x{position:absolute;top:-7px;right:-7px;width:24px;height:24px;border-radius:50%;border:0;background:var(--ink);color:var(--inv);font-size:15px;line-height:1;cursor:pointer;padding:0}
 .rg{display:flex;align-items:center;gap:12px;color:var(--mu)}.rg input{flex:1;accent-color:var(--ac)}
@@ -50,7 +50,7 @@ header.sec{background:none;box-shadow:none;padding:6px 6px 10px}
 .seg button,.chip{border:1.5px solid var(--ln);background:none;border-radius:999px;padding:7px 14px;cursor:pointer}
 .seg button[aria-pressed=true],.chip[aria-pressed=true]{background:var(--g);color:#fff;border-color:transparent}
 #stk{margin:12px 0 4px}.chip.em{font-size:26px;padding:3px 9px;line-height:1.3}
-.row{display:flex;align-items:center;gap:10px;margin-bottom:10px}.row input[type=date]{margin-left:auto;border:1.5px solid var(--ln);background:none;border-radius:10px;padding:5px 8px}
+.row{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:10px}.row input[type=date]{margin-left:auto;border:1.5px solid var(--ln);background:none;border-radius:10px;padding:5px 8px}
 .row input[type=checkbox]{accent-color:var(--ac);width:18px;height:18px}
 #cp{width:100%;box-sizing:border-box;border:1.5px solid var(--ln);background:none;border-radius:12px;padding:11px 12px}
 .bar{position:sticky;bottom:0;background:linear-gradient(transparent,var(--pn) 28%);padding:20px 0 14px;display:flex;gap:8px}.bar .ghost{margin:0;flex:0 0 auto}.bar .pri{flex:1;width:auto}
@@ -61,12 +61,17 @@ dialog .btns{display:flex;gap:8px}
 .sz{margin:12px 0 4px}.szh{display:flex;justify-content:space-between;align-items:baseline;color:var(--mu)}.szh output{font:400 19px "Jua",sans-serif;color:var(--ac)}.szh output::after{content:" / 10";font:400 12px "Noto Sans KR",sans-serif;color:var(--mu)}
 .szr{display:flex;align-items:center;gap:8px}.szr input{flex:1;min-width:0;accent-color:var(--ac)}
 .pm{flex:none;width:34px;height:34px;border-radius:50%;border:1.5px solid var(--ln);background:var(--card);color:var(--ac);font-size:20px;line-height:1;padding:0;cursor:pointer}.pm:disabled{opacity:.4;cursor:default}.pm:active:not(:disabled){transform:scale(.92)}
-@media (max-width:899px){.app{grid-template-columns:minmax(112px,38%) 1fr}.stage{padding:12px 10px}.panel{padding:6px 10px 0}.deco{display:none}.top{padding:12px 16px 8px}h1{font-size:28px}.lead{font-size:12.5px}.sec{padding:14px;border-radius:20px}.slots{gap:6px}.chip.em{font-size:22px}}
+[hidden]{display:none!important}
+#busy{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);z-index:1000;max-width:84vw;text-align:center;background:rgba(42,33,64,.94);color:#fff;padding:20px 28px;border-radius:20px;font:400 18px/1.4 "Jua",sans-serif;box-shadow:0 18px 40px rgba(0,0,0,.4)}
+.iab{display:flex;gap:10px;align-items:center;justify-content:space-between;margin:8px 0 0;padding:10px 12px;border-radius:14px;background:#fff3e0;border:1px solid #f1d3a5;font-size:13px;line-height:1.45;color:#6b4a14}
+.iab button{flex:none;background:#2a2140;color:#fff;border:0;border-radius:999px;padding:8px 12px;font-weight:700;font-size:12.5px;cursor:pointer}
+.szh output:empty::after{content:""}
+@media (max-width:899px){.app{grid-template-columns:minmax(112px,38%) minmax(0,1fr)}.stage{padding:12px 10px}.panel{padding:6px 10px 0}.deco{display:none}.top{padding:12px 16px 8px}h1{font-size:28px}.lead{font-size:12.5px}.sec{padding:14px;border-radius:20px}.slots{gap:6px}.chip.em{font-size:22px}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
-<header class="top"><h1>인생네컷 메이커</h1><p class="lead">사진을 올리면 네컷 스트립이 뚝딱! 사진은 이 기기 안에서만 처리되고 어디에도 올라가지 않아요.</p></header>
+<header class="top"><h1>인생네컷 메이커</h1><p class="lead">사진을 올리면 네컷 스트립이 뚝딱! 사진은 이 기기 안에서만 처리되고 어디에도 올라가지 않아요.</p><div class="iab" hidden><span>카카오톡·네이버 같은 앱 안에서는 이미지 저장이 막힐 수 있어요. 기본 브라우저에서 열면 잘 저장돼요.</span><button id="ex">기본 브라우저로 열기</button></div></header>
 <main class="app">
 <section class="stage"><i class="deco" style="--x:7%;--y:8%;--r:-14deg" aria-hidden="true">💗</i><i class="deco" style="--x:84%;--y:7%;--r:12deg" aria-hidden="true">⭐</i><i class="deco" style="--x:5%;--y:76%;--r:10deg" aria-hidden="true">🎀</i><i class="deco" style="--x:86%;--y:68%;--r:-10deg" aria-hidden="true">🌸</i><i class="deco" style="--x:10%;--y:42%;--r:-6deg" aria-hidden="true">✨</i><i class="deco" style="--x:82%;--y:40%;--r:16deg" aria-hidden="true">🍒</i>
 <div class="strip"><canvas id="cv" width="1200" height="4060" aria-label="네컷 미리보기"></canvas></div></section>
@@ -76,14 +81,15 @@ dialog .btns{display:flex;gap:8px}
 <div class="sec" data-s="1"><h2>🎨 프레임</h2><div class="sw" id="sw"></div><div class="seg" id="sty"></div></div>
 <div class="sec" data-s="2"><h2>🪄 필터</h2><div class="chips" id="fl"></div></div>
 <div class="sec" data-s="3"><h2>✏️ 날짜와 문구</h2><label class="row"><input type="checkbox" id="dt" checked>날짜 넣기<input type="date" id="dv"></label><input type="text" id="cp" maxlength="24" placeholder="한 줄 문구 (예: 우리의 가을)"><div class="sz"><div class="szh"><span>글자 크기</span><output id="to">6</output></div><div class="szr"><button class="pm" data-r="tz" data-d="-1" aria-label="글자 크기 줄이기">−</button><input type="range" id="tz" min="1" max="10" step="1" value="6" aria-label="글자 크기"><button class="pm" data-r="tz" data-d="1" aria-label="글자 크기 키우기">+</button></div></div><h3 class="sub">글꼴</h3><div class="seg" id="ft"></div><h3 class="sub">글자 꾸밈</h3><div class="seg" id="fx"></div></div>
-<div class="sec" data-s="4"><h2>🎀 스티커</h2><div class="seg" id="sk"></div><div class="chips" id="stk"></div><button class="ghost" id="img">🖼️ 내 사진·이미지를 스티커로</button><label class="rg" style="margin-top:12px">크기<input type="range" id="ss" min="40" max="420" value="96" disabled></label><button class="ghost" id="del">선택한 스티커 지우기</button><button class="ghost" id="clr">모두 지우기</button><p class="hint">스티커를 끌어 옮기고, 눌러서 선택하면 크기를 바꿀 수 있어요.</p></div>
+<div class="sec" data-s="4"><h2>🎀 스티커</h2><div class="seg" id="sk"></div><div class="chips" id="stk"></div><button class="ghost" id="img">🖼️ 내 사진·이미지를 스티커로</button><div class="sz"><div class="szh"><span>스티커 크기</span><output id="so"></output></div><div class="szr"><button class="pm" data-r="ss" data-d="-1" aria-label="스티커 줄이기" disabled>−</button><input type="range" id="ss" min="40" max="420" value="96" disabled aria-label="스티커 크기"><button class="pm" data-r="ss" data-d="1" aria-label="스티커 키우기" disabled>+</button></div></div><button class="ghost" id="del">선택한 스티커 지우기</button><button class="ghost" id="clr">모두 지우기</button><p class="hint">스티커를 끌어 옮기고, 눌러서 선택하면 크기를 바꿀 수 있어요.</p></div>
 <div class="sec" data-s="5"><h2>💾 완성!</h2><p class="hint" style="margin:0 0 12px">왼쪽 미리보기 그대로 저장돼요. 다시 고치려면 위 단계로 돌아가 주세요.</p><button class="pri" id="save">💾 이미지로 저장</button></div>
 <div class="bar"><button class="ghost" id="pv">이전</button><button class="pri" id="nx">다음 단계</button></div>
 </aside>
 </main>
 <input type="file" id="fs" accept="image/*" multiple hidden>
 <input type="file" id="fi" accept="image/*" multiple hidden>
-<dialog id="dlg"><img id="out" alt="완성된 인생네컷"><p class="hint" style="text-align:center;margin:0 0 12px">파일 저장이 안 되면 이미지를 길게 눌러 저장해 주세요.</p><div class="btns"><button class="pri" id="dls">파일로 저장</button><button class="ghost" id="dlx" style="margin:0">닫기</button></div></dialog>
+<div id="busy" hidden role="status" aria-live="polite">이미지를 만드는 중이에요…</div>
+<dialog id="dlg"><img id="out" alt="완성된 인생네컷"><p class="hint" style="text-align:center;margin:0 0 12px">파일 저장이 안 되면 이미지를 <b>길게 눌러</b> 저장해 주세요. 카카오톡·네이버 같은 앱 안에서는 저장이 막힐 수 있어요.</p><button class="ghost" id="ex2" hidden style="margin:0 0 12px;width:100%">기본 브라우저(Chrome·Safari)로 열기</button><div class="btns"><button class="pri" id="dls">파일로 저장</button><button class="ghost" id="dlx" style="margin:0">닫기</button></div></dialog>
 <script>
 const W=600,H=2030,PAD=36,PX=36,CW=528,CH=420,GAP=18,$=i=>document.getElementById(i);
 const BG=[["아이보리","#f6f1e7","#3a3326"],["화이트","#ffffff","#2a2a33"],["베이지","#e8d7c0","#4a3a28"],["베이비핑크","#f9d3dc","#5a2a3a"],["핫핑크","#ff4f9a","#ffffff"],["코랄","#ff8f87","#ffffff"],["살구","#ffd9bf","#5a3320"],["버터","#fbeaa6","#4a3d0b"],["레몬","#fff27a","#5a4b00"],["연두","#e2f2b5","#3a4a12"],["민트","#cfeee3","#1f4a3d"],["하늘","#cfe6ff","#1f3a63"],["라벤더","#d9d1f5","#34295e"],["라일락","#c9a7f5","#2e1a54"],["체리","#8e1b2f","#ffe9ee"],["와인","#5b1a35","#ffe3ee"],["모카","#8a6a56","#fff3e6"],["딥그린","#1f4d3a","#e6f5ec"],["네이비","#17224d","#e8ecff"],["차콜","#2c2c34","#f0f0f4"],["블랙","#141414","#f2efe9"],["노을","#ffd9c2|#d9c9ff","#4a2f4f"],["새벽","#bcd4ff|#ffd0e6","#26305a"],["복숭아","#ffe3d1|#ffb6c8","#5a2e3a"],["벚꽃","#ffeef6|#ffc2dc","#6a2a45"],["오로라","#a8f0e0|#c3b0ff","#23305a"],["라임소다","#f3ffb0|#9ff0c8","#1f4a35"],["바다","#9fd8ff|#6a8cff","#10234f"],["석양","#ffc58a|#ff7eb6","#4a1f3d"]];
@@ -137,7 +143,7 @@ $("ft").innerHTML=FONTS.map(([n,f],i)=>`<button data-ft="${i}" aria-pressed="${S
 $("fx").innerHTML=FX.map(([n,v])=>`<button data-fx="${v}" aria-pressed="${S.fx==v}">${n}</button>`).join("");
 $("sk").innerHTML=SK.map(([n],i)=>`<button data-sk="${i}" aria-pressed="${S.sk==i}">${n}</button>`).join("");
 $("stk").innerHTML=SK[S.sk][1].map(e=>`<button class="chip em" data-e="${e}" aria-label="스티커 ${e} 추가">${e}</button>`).join("");
-steps();$("ss").disabled=S.ss<0;$("del").disabled=S.ss<0;if(S.ss>=0)$("ss").value=S.st[S.ss].s;
+steps();$("ss").disabled=S.ss<0;$("del").disabled=S.ss<0;if(S.ss>=0)$("ss").value=S.st[S.ss].s;document.querySelectorAll('.pm[data-r="ss"]').forEach(b=>b.disabled=S.ss<0);$("so").textContent=S.ss>=0?SL(S.st[S.ss].s):"";
 render()}
 async function load(f){try{return await createImageBitmap(f,{imageOrientation:"from-image"})}catch(e){return new Promise((ok,no)=>{const i=new Image();i.onload=()=>ok(i);i.onerror=no;i.src=URL.createObjectURL(f)})}}
 async function add(fs,at){fs=[...fs].filter(f=>f.type.startsWith("image/"));if(!fs.length)return;const ix=[0,1,2,3],em=ix.filter(i=>!S.c[i].b&&i!=at),fi=ix.filter(i=>S.c[i].b&&i!=at),order=(at!=null?[at]:[]).concat(em,fi);
@@ -162,14 +168,16 @@ const spot=()=>[W/2,PAD+S.sel*(CH+GAP)+CH/2];
 $("stk").onclick=e=>{const b=e.target.closest("[data-e]");if(b){const[x,y]=spot();S.st.push({e:b.dataset.e,x,y,s:110});S.ss=S.st.length-1;ui()}};
 $("img").onclick=()=>$("fs").click();
 $("fs").onchange=async()=>{for(const f of $("fs").files){if(!f.type.startsWith("image/"))continue;try{const[x,y]=spot();S.st.push({b:await load(f),x,y,s:240});S.ss=S.st.length-1}catch(e){}}$("fs").value="";ui()};
-$("ss").oninput=e=>{if(S.ss>=0){S.st[S.ss].s=+e.target.value;render()}};
+const SL=s=>Math.max(1,Math.min(10,Math.round(1+(s-40)*9/380))),SV=l=>Math.round(40+(l-1)*380/9);
+function sset(v){if(S.ss<0)return;const t=S.st[S.ss];t.s=Math.max(40,Math.min(420,v));$("ss").value=t.s;$("so").textContent=SL(t.s);render()}
+$("ss").oninput=e=>sset(+e.target.value);
 $("del").onclick=()=>{if(S.ss>=0){S.st.splice(S.ss,1);S.ss=-1;ui()}};
 $("clr").onclick=()=>{S.st=[];S.ss=-1;ui()};
 const ZL=z=>Math.round(1+(z-1)*9/2),ZV=l=>1+(l-1)*2/9;
 function zset(z){const k=S.c[S.sel];if(!k.b)return;k.z=Math.max(1,Math.min(3,z));$("zm").value=k.z;$("zo").textContent=ZL(k.z);render()}
 $("zm").oninput=e=>zset(+e.target.value);
 $("tz").oninput=e=>{S.tz=+e.target.value;$("to").textContent=S.tz;render()};
-$("pn").addEventListener("click",e=>{const b=e.target.closest(".pm");if(!b||b.disabled)return;const d=+b.dataset.d;if(b.dataset.r=="zm")zset(ZV(Math.max(1,Math.min(10,ZL(S.c[S.sel].z)+d))));else{S.tz=Math.max(1,Math.min(10,S.tz+d));$("tz").value=S.tz;$("to").textContent=S.tz;render()}});
+$("pn").addEventListener("click",e=>{const b=e.target.closest(".pm");if(!b||b.disabled)return;const d=+b.dataset.d;if(b.dataset.r=="zm")zset(ZV(Math.max(1,Math.min(10,ZL(S.c[S.sel].z)+d))));else if(b.dataset.r=="ss")sset(SV(Math.max(1,Math.min(10,SL(S.st[S.ss].s)+d))));else{S.tz=Math.max(1,Math.min(10,S.tz+d));$("tz").value=S.tz;$("to").textContent=S.tz;render()}});
 $("dt").onchange=e=>{S.dt=e.target.checked;render()};$("dv").value=S.dv;$("dv").oninput=e=>{S.dv=e.target.value;render()};$("cp").oninput=e=>{S.cap=e.target.value;render();lf()};
 const pos=e=>{const r=cv.getBoundingClientRect();return[(e.clientX-r.left)*W/r.width,(e.clientY-r.top)*W/r.width]};
 cv.onpointerdown=e=>{const[x,y]=pos(e);cv.setPointerCapture(e.pointerId);
@@ -179,9 +187,13 @@ cv.onpointermove=e=>{if(!drag)return;const[x,y]=pos(e),dx=x-drag.x,dy=y-drag.y;d
 cv.onpointerup=()=>{if(drag&&drag.t=="c"&&!S.c[drag.i].b&&drag.m<6)pick(drag.i);drag=null};
 cv.addEventListener("wheel",e=>{const k=S.c[S.sel];if(!k.b)return;e.preventDefault();zset(k.z*(e.deltaY<0?1.06:.94))},{passive:false});
 addEventListener("dragover",e=>e.preventDefault());addEventListener("drop",e=>{e.preventDefault();add(e.dataTransfer.files,null)});
-async function exp(){await Promise.all([document.fonts.load('56px "'+FONTS[S.ft][1]+'"',S.cap+S.dv+"0123456789.-/ 인생네컷"),document.fonts.load('44px "Jua"',"인생네컷 ✦")]);const o=document.createElement("canvas");o.width=W*2;o.height=H*2;draw(o.getContext("2d"),2,false);return new Promise(r=>o.toBlob(r,"image/png"))}
-$("save").onclick=async()=>{$("save").disabled=true;try{blob=await exp();$("out").src=URL.createObjectURL(blob);$("dls").hidden=!DL;$("dlg").showModal()}finally{$("save").disabled=false}};
-$("dls").onclick=async()=>{try{await DL.save({filename:"life4cut.png",data:blob})}catch(e){}};
+const inApp=()=>/KAKAOTALK|NAVER\(inapp|Instagram|FBAN|FBAV|Line\/|DaumApps|; wv\)/i.test(navigator.userAgent||""),isMob=()=>/Android|iPhone|iPad|iPod/i.test(navigator.userAgent||"")||(navigator.maxTouchPoints>1&&/Mac/.test(navigator.platform||""));
+let DU="";
+async function exp(){await Promise.all([document.fonts.load('56px "'+FONTS[S.ft][1]+'"',S.cap+S.dv+"0123456789.-/ 인생네컷"),document.fonts.load('44px "Jua"',"인생네컷 ✦")]);const o=document.createElement("canvas");o.width=W*2;o.height=H*2;draw(o.getContext("2d"),2,false);DU=isMob()||inApp()?o.toDataURL("image/jpeg",.95):"";return new Promise(r=>o.toBlob(r,"image/png"))}
+$("save").onclick=async()=>{if($("save").disabled)return;$("save").disabled=true;$("busy").hidden=false;try{await new Promise(r=>requestAnimationFrame(()=>setTimeout(r,40)));blob=await exp();if(!blob)throw new Error("blob");$("out").src=DU||URL.createObjectURL(blob);$("busy").hidden=true;$("dlg").showModal()}catch(e){console.error(e);alert("이미지를 만들지 못했어요. Chrome·Safari 같은 기본 브라우저에서 다시 시도해 주세요.")}finally{$("busy").hidden=true;$("save").disabled=false}};
+$("dls").onclick=async()=>{if(DL){try{await DL.save({filename:"life4cut.png",data:blob})}catch(e){}return}const f=new File([blob],"life4cut.png",{type:"image/png"});try{if(isMob()&&navigator.canShare&&navigator.canShare({files:[f]})){await navigator.share({files:[f],title:"인생네컷"});return}}catch(e){if(e&&e.name=="AbortError")return}const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="life4cut.png";document.body.appendChild(a);a.click();a.remove()};
+function openExt(){const u=location.href.split("#")[0],ua=navigator.userAgent||"";if(/KAKAOTALK/i.test(ua))location.href="kakaotalk://web/openExternal?url="+encodeURIComponent(u);else if(/Android/i.test(ua))location.href="intent://"+u.replace(/^https?:\/\//,"")+"#Intent;scheme=https;package=com.android.chrome;end";else alert("화면의 메뉴(⋮ 또는 공유 아이콘)에서 '다른 브라우저로 열기' 또는 'Safari에서 열기'를 선택해 주세요.")}
+$("ex").onclick=$("ex2").onclick=openExt;if(inApp()){$("ex2").hidden=false;document.querySelectorAll(".iab").forEach(e=>e.hidden=false)}
 $("dlx").onclick=()=>$("dlg").close();
 (async()=>{try{DL=await claude.use("downloads")}catch(e){}})();
 ui();Promise.all([document.fonts.load('44px "Jua"',"인생네컷"),document.fonts.load('500 26px "Noto Sans KR"',"+ 사진 추가"),document.fonts.load('56px "Jua"',"0123456789.-")]).then(render).catch(()=>{});
