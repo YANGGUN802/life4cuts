@@ -81,7 +81,7 @@ dialog .btns{display:flex;gap:8px}
 dialog .btns .ghost{flex:none;white-space:nowrap}
 @media (max-width:899px){.font-select{display:none}.mobile-font-picker{display:block}.app{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(180px,40%) minmax(0,1fr)}.stage{padding:3px 6px}.panel{padding:5px 10px 0}.deco{display:none}.top{padding:6px 12px 4px}h1{font-size:24px}.lead{font-size:11px;line-height:1.3}.sec{padding:12px;border-radius:18px}.slots{gap:6px}.chip.em{font-size:22px}
 /* Keep the preview/editor split unchanged, but enlarge the four-cut inside its clipped viewport. */
-.strip{overflow:hidden;align-items:flex-start;justify-content:center;touch-action:none;overscroll-behavior:contain}#cv{width:min(88%,390px);height:auto;max-width:none;max-height:none;transform-origin:top center;}
+.strip{overflow:hidden;align-items:flex-start;justify-content:center;touch-action:none;overscroll-behavior:contain}#cv{width:min(80%,360px);height:auto;max-width:none;max-height:none;transform-origin:top center;}
 }
 /* Compact photo upload controls so the photo section fits in a smaller viewport */
 .sec[data-s="0"]{padding:10px 12px;margin-bottom:8px;border-radius:16px}
@@ -292,22 +292,27 @@ $("dt").onchange=e=>{S.dt=e.target.checked;render()};$("dv").value=S.dv;$("dv").
 // The canvas itself is translated during mobile auto-pan, so adding the offset again
 // would double-compensate and make stickers impossible to select or drag.
 const pos=e=>{const r=cv.getBoundingClientRect();return[(e.clientX-r.left)*W/r.width,(e.clientY-r.top)*W/r.width]};
+let stickerAutoPanFrame=null,stickerAutoPanY=null;
 cv.onpointerdown=e=>{e.preventDefault();const[x,y]=pos(e);cv.setPointerCapture(e.pointerId);
 for(let j=S.st.length-1;j>=0;j--){const t=S.st[j],[hw,hh]=sb(t);if(Math.abs(x-t.x)<Math.max(hw+18, t.s*.9)&&Math.abs(y-t.y)<Math.max(hh+18, t.s*.9)){S.ss=j;drag={t:"s",s:t,x,y,m:0,lastClientY:e.clientY};ui();return}}
 S.ss=-1;const i=[0,1,2,3].find(i=>{const cy=PAD+i*(CH+photoGap);return x>=PX&&x<=PX+CW&&y>=cy&&y<=cy+CH});if(i==null){ui();return}S.sel=i;drag={t:"c",i,x,y,m:0,lastClientY:e.clientY};ui()};
 cv.onpointermove=e=>{if(!drag)return;e.preventDefault();let[x,y]=pos(e),dx=x-drag.x,dy=y-drag.y;drag.m+=Math.abs(dx)+Math.abs(dy);
-// Bidirectional edge-pan on mobile while a sticker is held:
-// drag near the bottom to reveal lower content, near the top to reveal upper content.
-let autoPanned=false;
-if(drag.t==="s"&&matchMedia('(max-width:899px)').matches&&stripEl){
- const r=stripEl.getBoundingClientRect(),step=e.clientY-(drag.lastClientY??e.clientY),edge=Math.min(48,r.height*.2);
- const oldOffset=mobilePreviewOffset;
- if(e.clientY>r.bottom-edge&&step>0){mobilePreviewOffset-=Math.max(step*2.4,5);autoPanned=true;}
- else if(e.clientY<r.top+edge&&step<0){mobilePreviewOffset+=Math.max(Math.abs(step)*2.4,5);autoPanned=true;}
- if(autoPanned){applyMobilePreview();}
+// Smooth bidirectional edge-pan while a sticker is held on mobile.
+stickerAutoPanY=e.clientY;
+if(drag.t==="s"&&matchMedia('(max-width:899px)').matches&&stripEl&&!stickerAutoPanFrame){
+ const panFrame=()=>{
+  if(!drag||drag.t!=="s"||!matchMedia('(max-width:899px)').matches||stickerAutoPanY==null||!stripEl){stickerAutoPanFrame=null;return;}
+  const r=stripEl.getBoundingClientRect(),edge=Math.min(56,r.height*.24),y=stickerAutoPanY;
+  let speed=0;
+  if(y>r.bottom-edge)speed=-Math.min(12,2+((y-(r.bottom-edge))/edge)*10);
+  else if(y<r.top+edge)speed=Math.min(12,2+(((r.top+edge)-y)/edge)*10);
+  if(speed!==0){mobilePreviewOffset+=speed;applyMobilePreview();}
+  stickerAutoPanFrame=requestAnimationFrame(panFrame);
+ };
+ stickerAutoPanFrame=requestAnimationFrame(panFrame);
 }
 if(drag.t==="s"){drag.s.x+=dx;drag.s.y+=dy;}else if(S.c[drag.i].b){S.c[drag.i].x+=dx;S.c[drag.i].y+=dy}drag.x=x;drag.y=y;drag.lastClientY=e.clientY;render()};
-cv.onpointerup=()=>{if(drag&&drag.t=="c"&&!S.c[drag.i].b&&drag.m<6)pick(drag.i);drag=null};cv.onpointercancel=()=>{drag=null};
+cv.onpointerup=()=>{if(drag&&drag.t=="c"&&!S.c[drag.i].b&&drag.m<6)pick(drag.i);drag=null;stickerAutoPanY=null;if(stickerAutoPanFrame){cancelAnimationFrame(stickerAutoPanFrame);stickerAutoPanFrame=null}};cv.onpointercancel=()=>{drag=null;stickerAutoPanY=null;if(stickerAutoPanFrame){cancelAnimationFrame(stickerAutoPanFrame);stickerAutoPanFrame=null}};
 cv.addEventListener("wheel",e=>{const k=S.c[S.sel];if(!k.b)return;e.preventDefault();zset(k.z*(e.deltaY<0?1.06:.94))},{passive:false});
 addEventListener("dragover",e=>e.preventDefault());addEventListener("drop",e=>{e.preventDefault();add(e.dataTransfer.files,null)});
 const inApp=()=>/KAKAOTALK|NAVER\(inapp|Instagram|FBAN|FBAV|Line\/|DaumApps|; wv\)/i.test(navigator.userAgent||""),isMob=()=>/Android|iPhone|iPad|iPod/i.test(navigator.userAgent||"")||(navigator.maxTouchPoints>1&&/Mac/.test(navigator.platform||""));
@@ -329,7 +334,7 @@ let mobilePreviewOffset=0, previewPan=null;
 const stripEl=document.querySelector('.strip');
 function applyMobilePreview(){if(!stripEl||!cv)return;const mobile=matchMedia('(max-width:899px)').matches;if(!mobile){cv.style.transform='';stripEl.style.touchAction='';return;}const scale=cv.clientWidth/cv.width;const h=cv.height*scale;const view=stripEl.clientHeight;const max=Math.max(0,h-view);mobilePreviewOffset=Math.max(-max,Math.min(0,mobilePreviewOffset));cv.style.transform=`translate3d(0,${mobilePreviewOffset}px,0)`;}
 stripEl.addEventListener('pointerdown',e=>{if(!matchMedia('(max-width:899px)').matches||e.target===cv)return;e.preventDefault();previewPan={y:e.clientY,offset:mobilePreviewOffset};stripEl.setPointerCapture(e.pointerId);});
-stripEl.addEventListener('pointermove',e=>{if(!previewPan)return;e.preventDefault();const dy=e.clientY-previewPan.y;mobilePreviewOffset=previewPan.offset+(dy*1.45);applyMobilePreview();});
+stripEl.addEventListener('pointermove',e=>{if(!previewPan)return;e.preventDefault();const dy=e.clientY-previewPan.y;mobilePreviewOffset=previewPan.offset+(dy*1.9);applyMobilePreview();});
 stripEl.addEventListener('pointerup',()=>{previewPan=null;});stripEl.addEventListener('pointercancel',()=>{previewPan=null;});
 addEventListener('resize',applyMobilePreview);
 
