@@ -9,26 +9,26 @@
 <meta property="og:locale" content="ko_KR">
 <meta property="og:title" content="📸인생네컷 메이커🖼️ | 무료 온라인 스튜디오">
 <meta property="og:description" content="나만의 네컷 사진을 만들어보세요! [by JUNE]">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jua&family=Gaegu&family=Hi+Melody&family=Gamja+Flower&family=Single+Day&family=Poor+Story&family=Cute+Font&family=Yeon+Sung&family=Dongle&family=Bagel+Fat+One&family=Gugi&family=Kirang+Haerang&family=Do+Hyeon&family=Black+Han+Sans&family=East+Sea+Dokdo&family=Nanum+Pen+Script&family=Nanum+Brush+Script&family=Song+Myung&family=Gowun+Batang&family=Stylish&family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jua&family=Gaegu&family=Hi+Melody&family=Gamja+Flower&family=Single+Day&family=Poor+Story&family=Cute+Font&family=Yeon+Sung&family=Dongle&family=Gugi&family=Kirang+Haerang&family=Do+Hyeon&family=East+Sea+Dokdo&family=Nanum+Pen+Script&family=Nanum+Brush+Script&family=Song+Myung&family=Gowun+Batang&family=Stylish&family=Noto+Sans+KR:wght@400;500;700&display=swap">
 <style>
 :root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bg:#ffe6f3;--bg2:#fff8fc;--pn:#fff1f8;--card:#fff;--tx:#2a2140;--mu:#85789c;--ln:#f3dcea;--ac:#ff5fa2;--ac2:#8f7bff;--ink:#2a2140;--inv:#fff;--bo:1;--g:linear-gradient(135deg,#ff7eb6,#8f7bff)}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1b1226;--bg2:#2e1e45;--pn:#231833;--card:#2d2040;--tx:#f6ecff;--mu:#b5a3cf;--ln:#43315c;--ac:#ff7eb6;--ac2:#a99bff;--ink:#f6ecff;--inv:#1b1226;--bo:.3}}
 :root[data-theme="dark"]{--bg:#1b1226;--bg2:#2e1e45;--pn:#231833;--card:#2d2040;--tx:#f6ecff;--mu:#b5a3cf;--ln:#43315c;--ac:#ff7eb6;--ac2:#a99bff;--ink:#f6ecff;--inv:#1b1226;--bo:.3}
 html,body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.55 "Noto Sans KR",system-ui,sans-serif}
-body{display:flex;flex-direction:column;height:100dvh;overflow:hidden}
-.top{background:var(--pn);padding:14px 28px 8px}.top h1{margin:0 0 4px}
+body{display:flex;flex-direction:column;height:100dvh;min-height:0;overflow:hidden}
+.top{flex:none;background:var(--pn);padding:8px 18px 5px}.top h1{margin:0 0 2px;font-size:clamp(22px,2.2vw,30px)}.top .lead{font-size:12px;line-height:1.35}
 .tabs{position:sticky;top:0;z-index:5;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:2px;background:var(--pn);padding:4px 0 8px}.tabs button{border:0;background:none;border-radius:12px;padding:5px 0;font-size:11px;line-height:1.25;color:var(--mu);cursor:pointer}.tabs button span{display:block;font-size:19px}.tabs button[aria-current=true]{background:var(--card);color:var(--ac);font-weight:700;box-shadow:0 6px 14px -8px rgba(190,80,160,.6)}
 button,input{font:inherit;color:inherit}
 :focus-visible{outline:2px solid var(--ac);outline-offset:2px}
-.app{flex:1;min-height:0;display:grid;grid-template-columns:minmax(0,1fr) 410px;grid-template-rows:minmax(0,1fr)}
-.stage{position:relative;overflow:hidden;min-height:0;display:grid;place-items:center;padding:34px;background:var(--bg2)}
+.app{flex:1;min-height:0;min-width:0;width:100%;max-width:1440px;margin:0 auto;display:grid;grid-template-columns:minmax(280px,44%) minmax(0,56%);grid-template-rows:minmax(0,1fr);overflow:hidden}
+.stage{position:relative;overflow:hidden;min-width:0;min-height:0;display:flex;flex-direction:column;align-items:center;justify-content:stretch;gap:4px;padding:5px 8px;background:var(--bg2)}
 .stage::before{content:"";position:absolute;inset:0;opacity:var(--bo);background:radial-gradient(40% 35% at 14% 12%,#ffc2df,transparent 72%),radial-gradient(38% 34% at 90% 18%,#cfc2ff,transparent 72%),radial-gradient(46% 40% at 82% 94%,#bfe3ff,transparent 72%),radial-gradient(40% 36% at 8% 90%,#fff0b3,transparent 72%)}
 .stage::after{content:"";position:absolute;inset:0;pointer-events:none;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='110' height='110'%3E%3Cpath d='M30 18l4 11 11 4-11 4-4 11-4-11-11-4 11-4z' fill='%23ff7eb6' fill-opacity='.4'/%3E%3Ccircle cx='86' cy='74' r='5' fill='%238f7bff' fill-opacity='.3'/%3E%3C/svg%3E")}
 .deco{position:absolute;left:var(--x);top:var(--y);font-style:normal;font-size:clamp(30px,4.4vw,58px);transform:rotate(var(--r));filter:drop-shadow(0 8px 10px rgba(130,60,150,.28));pointer-events:none;z-index:1}
-.strip{position:relative;z-index:2;display:flex}
-#cv{height:auto;width:auto;max-height:60dvh;max-width:100%;touch-action:none;cursor:grab;box-shadow:0 40px 64px -26px rgba(120,40,140,.55),0 10px 20px rgba(120,40,140,.2);animation:rise .8s cubic-bezier(.2,.8,.2,1)}
+.strip{position:relative;z-index:2;display:flex;flex:1 1 auto;align-items:center;justify-content:center;width:100%;height:100%;min-width:0;min-height:0;overflow:hidden}
+#cv{touch-action:none;user-select:none;-webkit-user-select:none;cursor:grab;display:block;flex:none;height:auto;width:auto;max-height:100%;max-width:min(100%,430px);object-fit:contain;box-shadow:0 6px 16px rgba(120,40,140,.18);border-radius:8px}#mini{display:none}.stage-tools{display:none}
 @keyframes rise{from{opacity:0;transform:translateY(28px)}}
-.panel{background:var(--pn);min-height:0;min-width:0;overflow:auto;overflow-x:hidden;padding:8px 18px 0}
+.panel{background:var(--pn);min-height:0;min-width:0;overflow:auto;overflow-x:hidden;padding:8px 18px 0}.creator-credit{padding:8px 0 18px;text-align:center;color:var(--mu);font:400 13px/1.5 "Jua",sans-serif;letter-spacing:.4px;opacity:.85}
 h1{font:400 38px/1.15 "Jua",sans-serif;margin:0 0 8px;background:var(--g);-webkit-background-clip:text;background-clip:text;color:transparent}
 h2{font:400 19px/1.2 "Jua",sans-serif;margin:0 0 12px}
 .lead{color:var(--mu);margin:0;font-size:14px}
@@ -37,7 +37,7 @@ header.sec{background:none;box-shadow:none;padding:6px 6px 10px}
 .pri{width:100%;border:0;border-radius:16px;background:var(--g);color:#fff;padding:14px 18px;font:400 19px "Jua",sans-serif;cursor:pointer;box-shadow:0 12px 22px -10px rgba(255,95,162,.8);transition:transform .15s}
 .pri:active{transform:scale(.97)}.pri:disabled{opacity:.5}
 .ghost{border:1.5px solid var(--ln);background:none;border-radius:12px;padding:8px 13px;cursor:pointer;margin:10px 8px 0 0}
-.slots{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin:14px 0}
+.slots{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin:14px 0}
 .slot{min-width:0;aspect-ratio:1;border-radius:16px;border:2px dashed #ffb3d4;background:var(--bg2) center/cover;position:relative;display:grid;place-items:center;color:var(--ac);font-size:26px;cursor:pointer}
 .slot.on{border:3px solid var(--ac)}
 .x{position:absolute;top:-7px;right:-7px;width:24px;height:24px;border-radius:50%;border:0;background:var(--ink);color:var(--inv);font-size:15px;line-height:1;cursor:pointer;padding:0}
@@ -53,12 +53,12 @@ header.sec{background:none;box-shadow:none;padding:6px 6px 10px}
 .row{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:10px}.row input[type=date]{margin-left:auto;border:1.5px solid var(--ln);background:none;border-radius:10px;padding:5px 8px}
 .row input[type=checkbox]{accent-color:var(--ac);width:18px;height:18px}
 #cp{width:100%;box-sizing:border-box;border:1.5px solid var(--ln);background:none;border-radius:12px;padding:11px 12px}
-.bar{position:sticky;bottom:0;background:linear-gradient(transparent,var(--pn) 28%);padding:20px 0 14px;display:flex;gap:8px}.bar .ghost{margin:0;flex:0 0 auto}.bar .pri{flex:1;width:auto}
+
 dialog{border:0;border-radius:24px;background:var(--pn);color:var(--tx);padding:18px;width:min(92vw,400px)}
 dialog::backdrop{background:rgba(40,16,50,.62);backdrop-filter:blur(6px)}
 dialog img{display:block;max-height:56dvh;max-width:100%;margin:0 auto 14px;box-shadow:0 10px 30px rgba(0,0,0,.3)}
 dialog .btns{display:flex;gap:8px}
-.sz{margin:12px 0 4px}.szh{display:flex;justify-content:space-between;align-items:baseline;color:var(--mu)}.szh output{font:400 19px "Jua",sans-serif;color:var(--ac)}.szh output::after{content:" / 10";font:400 12px "Noto Sans KR",sans-serif;color:var(--mu)}
+.sz{margin:12px 0 4px}.szh{display:flex;justify-content:space-between;align-items:baseline;color:var(--mu)}.szh output{font:400 19px "Jua",sans-serif;color:var(--ac)}
 .szr{display:flex;align-items:center;gap:8px}.szr input{flex:1;min-width:0;accent-color:var(--ac)}
 .pm{flex:none;width:34px;height:34px;border-radius:50%;border:1.5px solid var(--ln);background:var(--card);color:var(--ac);font-size:20px;line-height:1;padding:0;cursor:pointer}.pm:disabled{opacity:.4;cursor:default}.pm:active:not(:disabled){transform:scale(.92)}
 [hidden]{display:none!important}
@@ -66,9 +66,37 @@ dialog .btns{display:flex;gap:8px}
 .iab{flex:none;display:flex;gap:10px;align-items:center;justify-content:space-between;padding:6px 14px;background:var(--pn);border-top:1px solid var(--ln);font-size:12px;line-height:1.4;color:var(--mu)}
 .iab button{flex:none;background:none;color:var(--mu);border:1px solid var(--ln);border-radius:999px;padding:4px 10px;font-size:12px;cursor:pointer}
 .szh output:empty::after{content:""}
+.font-select{width:100%;box-sizing:border-box;padding:10px 12px;border:1.5px solid var(--ln);border-radius:12px;background:var(--card);color:var(--tx);font-size:16px;cursor:pointer}
+.font-select option{padding:6px;font-size:18px}
+/* Mobile font picker: native Android select menus ignore option font-family, so use a custom preview list on phones. */
+.mobile-font-picker{display:none;position:relative;width:100%;}
+.mobile-font-current{width:100%;box-sizing:border-box;padding:10px 12px;border:1.5px solid var(--ln);border-radius:12px;background:var(--card);color:var(--tx);text-align:left;font-size:18px;min-height:44px;}
+.mobile-font-current:after{content:"▾";float:right;color:var(--mu);font-family:system-ui,sans-serif}
+.mobile-font-options{display:none;position:absolute;left:0;right:0;top:calc(100% + 4px);z-index:50;max-height:230px;overflow-y:auto;overscroll-behavior:contain;background:var(--card);border:1.5px solid var(--ln);border-radius:12px;box-shadow:0 10px 28px rgba(60,30,70,.2);}
+.mobile-font-picker.open .mobile-font-options{display:block}
+.mobile-font-option{display:block;width:100%;padding:10px 12px;border:0;border-bottom:1px solid var(--ln);background:transparent;color:var(--tx);text-align:left;font-size:18px;line-height:1.35;}
+.mobile-font-option[aria-selected="true"]{background:var(--bg2);color:var(--ac)}
+
 .tip{margin:0 0 12px;padding:11px 14px;border-radius:14px;background:var(--g);color:#fff;text-align:center;font:400 18px/1.4 "Jua",sans-serif;box-shadow:0 8px 18px -10px rgba(255,95,162,.8)}.tip b{font-weight:400;text-decoration:underline;text-underline-offset:3px}
 dialog .btns .ghost{flex:none;white-space:nowrap}
-@media (max-width:899px){.app{grid-template-columns:minmax(112px,38%) minmax(0,1fr)}.stage{padding:12px 10px}.panel{padding:6px 10px 0}.deco{display:none}.top{padding:12px 16px 8px}h1{font-size:28px}.lead{font-size:12.5px}.sec{padding:14px;border-radius:20px}.slots{gap:6px}.chip.em{font-size:22px}}
+@media (max-width:899px){.font-select{display:none}.mobile-font-picker{display:block}.app{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(180px,40%) minmax(0,1fr)}.stage{padding:3px 6px}.panel{padding:5px 10px 0}.deco{display:none}.top{padding:6px 12px 4px}h1{font-size:24px}.lead{font-size:11px;line-height:1.3}.sec{padding:12px;border-radius:18px}.slots{gap:6px}.chip.em{font-size:22px}
+/* Keep the preview/editor split unchanged, but enlarge the four-cut inside its clipped viewport. */
+.strip{overflow:hidden;align-items:flex-start;justify-content:center;touch-action:none;overscroll-behavior:contain}#cv{width:min(88%,390px);height:auto;max-width:none;max-height:none;transform-origin:top center;}
+}
+/* Compact photo upload controls so the photo section fits in a smaller viewport */
+.sec[data-s="0"]{padding:10px 12px;margin-bottom:8px;border-radius:16px}
+.sec[data-s="0"] h2{font-size:17px;margin:0 0 7px}
+.sec[data-s="0"] .pri{padding:7px 12px;font-size:16px;border-radius:11px;box-shadow:none}
+.sec[data-s="0"] .slots{grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;margin:8px auto;max-width:440px}
+.sec[data-s="0"] .slot{aspect-ratio:1;border-radius:10px;border-width:1.5px;font-size:20px}
+.sec[data-s="0"] .slot.on{border-width:2px}
+.sec[data-s="0"] .x{width:20px;height:20px;top:-5px;right:-5px}
+.sec[data-s="0"] .sz{margin:6px 0 2px}
+.sec[data-s="0"] .szh output{font-size:15px}
+.sec[data-s="0"] .pm{width:27px;height:27px;font-size:17px}
+.sec[data-s="0"] .szr{gap:6px}
+.sec[data-s="0"] .hint{font-size:11px;line-height:1.35;margin-top:5px}
+@media(max-width:899px){.sec[data-s="0"]{padding:8px 10px}.sec[data-s="0"] .slots{max-width:360px;gap:5px;margin:6px auto}.sec[data-s="0"] .slot{border-radius:8px;font-size:18px}.sec[data-s="0"] .hint{font-size:10px}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
@@ -76,16 +104,19 @@ dialog .btns .ghost{flex:none;white-space:nowrap}
 <header class="top"><h1>인생네컷 메이커</h1><p class="lead">사진을 올리면 네컷 스트립이 뚝딱! 사진은 이 기기 안에서만 처리되고 어디에도 올라가지 않아요.</p></header>
 <main class="app">
 <section class="stage"><i class="deco" style="--x:7%;--y:8%;--r:-14deg" aria-hidden="true">💗</i><i class="deco" style="--x:84%;--y:7%;--r:12deg" aria-hidden="true">⭐</i><i class="deco" style="--x:5%;--y:76%;--r:10deg" aria-hidden="true">🎀</i><i class="deco" style="--x:86%;--y:68%;--r:-10deg" aria-hidden="true">🌸</i><i class="deco" style="--x:10%;--y:42%;--r:-6deg" aria-hidden="true">✨</i><i class="deco" style="--x:82%;--y:40%;--r:16deg" aria-hidden="true">🍒</i>
-<div class="strip"><canvas id="cv" width="1200" height="4060" aria-label="네컷 미리보기"></canvas></div></section>
+<div class="strip"><canvas id="cv" width="1200" height="4060" aria-label="세로 일렬 네컷 미리보기"></canvas><canvas id="mini" width="1000" height="900" aria-hidden="true"></canvas></div></section>
 <aside class="panel" id="pn">
 <nav class="tabs" id="tabs"></nav>
-<div class="sec" data-s="0"><h2>📷 사진</h2><button class="pri" id="up">사진 올리기</button><div class="slots" id="slots"></div><div class="sz"><div class="szh"><span>사진 확대</span><output id="zo">1</output></div><div class="szr"><button class="pm" data-r="zm" data-d="-1" aria-label="사진 확대 줄이기">−</button><input type="range" id="zm" min="1" max="3" step="0.01" value="1" aria-label="사진 확대"><button class="pm" data-r="zm" data-d="1" aria-label="사진 확대 키우기">+</button></div></div><p class="hint">사진을 올리면 다음 단계로 넘어가요. 미리보기에서 사진을 끌어 위치를 맞추고, 휠로 확대할 수 있어요. 빈 칸을 누르면 그 칸에 사진을 넣어요.</p></div>
-<div class="sec" data-s="1"><h2>🎨 프레임</h2><div class="sw" id="sw"></div><div class="seg" id="sty"></div></div>
-<div class="sec" data-s="2"><h2>🪄 필터</h2><div class="chips" id="fl"></div></div>
-<div class="sec" data-s="3"><h2>✏️ 날짜와 문구</h2><label class="row"><input type="checkbox" id="dt" checked>날짜 넣기<input type="date" id="dv"></label><input type="text" id="cp" maxlength="24" placeholder="한 줄 문구 (예: 우리의 가을)"><div class="sz"><div class="szh"><span>글자 크기</span><output id="to">6</output></div><div class="szr"><button class="pm" data-r="tz" data-d="-1" aria-label="글자 크기 줄이기">−</button><input type="range" id="tz" min="1" max="10" step="1" value="6" aria-label="글자 크기"><button class="pm" data-r="tz" data-d="1" aria-label="글자 크기 키우기">+</button></div></div><h3 class="sub">글꼴</h3><div class="seg" id="ft"></div><h3 class="sub">글자 꾸밈</h3><div class="seg" id="fx"></div></div>
-<div class="sec" data-s="4"><h2>🎀 스티커</h2><div class="seg" id="sk"></div><div class="chips" id="stk"></div><button class="ghost" id="img">🖼️ 내 사진·이미지를 스티커로</button><div class="sz"><div class="szh"><span>스티커 크기</span><output id="so"></output></div><div class="szr"><button class="pm" data-r="ss" data-d="-1" aria-label="스티커 줄이기" disabled>−</button><input type="range" id="ss" min="40" max="420" value="96" disabled aria-label="스티커 크기"><button class="pm" data-r="ss" data-d="1" aria-label="스티커 키우기" disabled>+</button></div></div><button class="ghost" id="del">선택한 스티커 지우기</button><button class="ghost" id="clr">모두 지우기</button><p class="hint">스티커를 끌어 옮기고, 눌러서 선택하면 크기를 바꿀 수 있어요.</p></div>
-<div class="sec" data-s="5"><h2>💾 완성!</h2><p class="hint" style="margin:0 0 12px">왼쪽 미리보기 그대로 저장돼요. 다시 고치려면 위 단계로 돌아가 주세요.</p><button class="pri" id="save">💾 이미지로 저장</button></div>
-<div class="bar"><button class="ghost" id="pv">이전</button><button class="pri" id="nx">다음 단계</button></div>
+<div class="sec" data-s="0"><h2>📷 사진</h2><button class="pri" id="up">📷 사진 올리기</button><div class="slots" id="slots"></div><div class="sz"><div class="szh"><span>🔎 사진 확대</span><output id="zo">1</output></div><div class="szr"><button class="pm" data-r="zm" data-d="-1" aria-label="사진 확대 줄이기">−</button><input type="range" id="zm" min="1" max="10" step="1" value="1" aria-label="사진 확대"><button class="pm" data-r="zm" data-d="1" aria-label="사진 확대 키우기">+</button></div></div><p class="hint">사진을 올리면 다음 단계로 넘어가요. 미리보기에서 사진을 끌어 위치를 맞추고, 휠로 확대할 수 있어요. 빈 칸을 누르면 그 칸에 사진을 넣어요.</p></div>
+<div class="sec" data-s="1"><h2>🎨 프레임</h2><div class="sw" id="sw"></div><div class="seg" id="sty"></div>
+<div class="sz"><div class="szh"><span>🖼️ 프레임 두께</span><output id="bo">0</output></div><div class="szr"><button class="pm" data-r="borderSize" data-d="-1" aria-label="프레임 두께 줄이기">−</button><input type="range" id="borderSize" min="1" max="10" step="1" value="1" style="width:100%"><button class="pm" data-r="borderSize" data-d="1" aria-label="프레임 두께 늘리기">+</button></div></div>
+<div class="sz"><div class="szh"><span>⭕ 모서리 둥글기</span><output id="ro">6</output></div><div class="szr"><button class="pm" data-r="roundSize" data-d="-1" aria-label="모서리 둥글기 줄이기">−</button><input type="range" id="roundSize" min="1" max="10" step="1" value="2" style="width:100%"><button class="pm" data-r="roundSize" data-d="1" aria-label="모서리 둥글기 늘리기">+</button></div></div></div>
+<div class="sec" data-s="2"><h2>🌈 필터</h2><div class="chips" id="fl"></div></div>
+<div class="sec" data-s="3"><h2>✏️ 날짜와 문구</h2><label class="row"><input type="checkbox" id="dt" checked>날짜 넣기<input type="date" id="dv"></label><input type="text" id="cp" maxlength="24" placeholder="한 줄 문구 (예: 우리의 가을)"><div class="sz"><div class="szh"><span>🔤 글자 크기</span><output id="to">6</output></div><div class="szr"><button class="pm" data-r="tz" data-d="-1" aria-label="글자 크기 줄이기">−</button><input type="range" id="tz" min="1" max="10" step="1" value="6" aria-label="글자 크기"><button class="pm" data-r="tz" data-d="1" aria-label="글자 크기 키우기">+</button></div></div><h3 class="sub">글꼴</h3><select id="ft" aria-label="문구 글꼴 선택" class="font-select"></select><h3 class="sub">글자 꾸밈</h3><div class="seg" id="fx"></div></div>
+<div class="sec" data-s="4"><h2>🎀 스티커</h2><div class="seg" id="sk"></div><div class="chips" id="stk"></div><input id="stickerText" type="text" maxlength="18" placeholder="텍스트 스티커 문구" style="width:100%;box-sizing:border-box;border:1.5px solid var(--ln);background:none;border-radius:12px;padding:10px;margin:8px 0"><div class="row" style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:4px 0 8px"><label for="stickerColor">글자색</label><input id="stickerColor" type="color" value="#ff4f9a" aria-label="텍스트 스티커 글자색" style="width:42px;height:36px;padding:2px"><label for="stickerFont">글꼴</label><select id="stickerFont" aria-label="텍스트 스티커 글꼴" class="font-select" style="flex:1;min-width:120px"></select></div><button class="ghost" id="addText">텍스트 스티커 추가</button><button class="ghost" id="img">🖼️ 내 사진·이미지를 스티커로</button><div class="sz"><div class="szh"><span>🎀 스티커 크기</span><output id="so"></output></div><div class="szr"><button class="pm" data-r="ss" data-d="-1" aria-label="스티커 줄이기" disabled>−</button><input type="range" id="ss" min="1" max="10" step="1" value="2" disabled aria-label="스티커 크기"><button class="pm" data-r="ss" data-d="1" aria-label="스티커 키우기" disabled>+</button></div></div><button class="ghost" id="del">선택한 스티커 지우기</button><button class="ghost" id="clr">모두 지우기</button><p class="hint">스티커를 끌어 옮기고, 눌러서 선택하면 크기를 바꿀 수 있어요.</p></div>
+<div class="sec" data-s="5"><h2>🏷️ 하단 로고 꾸미기</h2><input id="logoText" type="text" maxlength="30" value="✦ 인생네컷 ✦" placeholder="하단 로고 문구" style="width:100%;box-sizing:border-box;border:1.5px solid var(--ln);background:none;border-radius:12px;padding:10px"><h3 class="sub">글꼴</h3><select id="logoFont" aria-label="하단 로고 글꼴 선택" class="font-select"></select><div class="sz"><div class="szh"><span>🏷️ 로고 크기</span><output id="logoOut">44</output></div><div class="szr"><button class="pm" data-r="logoSize" data-d="-1" aria-label="로고 크기 줄이기">−</button><input type="range" id="logoSize" min="1" max="10" step="1" value="4" style="width:100%"><button class="pm" data-r="logoSize" data-d="1" aria-label="로고 크기 키우기">+</button></div></div></div><div class="sec" data-s="5"><h2>💾 저장하기</h2><p class="hint" style="margin:0 0 12px">왼쪽 미리보기 그대로 저장돼요. 다시 고치려면 위 단계로 돌아가 주세요.</p><button class="pri" id="save">💾 이미지로 저장</button></div>
+
+<div class="creator-credit">[by JUNE]</div>
 </aside>
 </main>
 <div class="iab" hidden><span>앱 안에서는 이미지 저장이 막힐 수 있어요.</span><button id="ex">기본 브라우저로 열기</button></div>
@@ -94,15 +125,15 @@ dialog .btns .ghost{flex:none;white-space:nowrap}
 <div id="busy" hidden role="status" aria-live="polite">이미지를 만드는<br>중이에요…</div>
 <dialog id="dlg"><p id="tip" class="tip"></p><img id="out" alt="완성된 인생네컷"><p id="dh" class="hint" hidden style="text-align:center;margin:0 0 12px">카카오톡·네이버 같은 앱 안에서는 저장 버튼이 막힐 수 있어요. 이미지를 길게 눌러 저장해 주세요.</p><div class="btns"><button class="pri" id="dls">파일로 저장</button><button class="ghost" id="dlx" style="margin:0">닫기</button></div></dialog>
 <script>
-const W=600,H=2030,PAD=36,PX=36,CW=528,CH=420,GAP=18,$=i=>document.getElementById(i);
+const W=600,H=2030,PAD=36,PX=36,CW=528,CH=420,$=i=>document.getElementById(i);const photoGap=18;let frameThickness=0,cornerRadius=6,logoSize=44,logoText="✦ 인생네컷 ✦",logoFont=0;
 const BG=[["아이보리","#f6f1e7","#3a3326"],["화이트","#ffffff","#2a2a33"],["베이지","#e8d7c0","#4a3a28"],["베이비핑크","#f9d3dc","#5a2a3a"],["핫핑크","#ff4f9a","#ffffff"],["코랄","#ff8f87","#ffffff"],["살구","#ffd9bf","#5a3320"],["버터","#fbeaa6","#4a3d0b"],["레몬","#fff27a","#5a4b00"],["연두","#e2f2b5","#3a4a12"],["민트","#cfeee3","#1f4a3d"],["하늘","#cfe6ff","#1f3a63"],["라벤더","#d9d1f5","#34295e"],["라일락","#c9a7f5","#2e1a54"],["체리","#8e1b2f","#ffe9ee"],["와인","#5b1a35","#ffe3ee"],["모카","#8a6a56","#fff3e6"],["딥그린","#1f4d3a","#e6f5ec"],["네이비","#17224d","#e8ecff"],["차콜","#2c2c34","#f0f0f4"],["블랙","#141414","#f2efe9"],["노을","#ffd9c2|#d9c9ff","#4a2f4f"],["새벽","#bcd4ff|#ffd0e6","#26305a"],["복숭아","#ffe3d1|#ffb6c8","#5a2e3a"],["벚꽃","#ffeef6|#ffc2dc","#6a2a45"],["오로라","#a8f0e0|#c3b0ff","#23305a"],["라임소다","#f3ffb0|#9ff0c8","#1f4a35"],["바다","#9fd8ff|#6a8cff","#10234f"],["석양","#ffc58a|#ff7eb6","#4a1f3d"]];
-const FL=[["원본",""],["흑백","grayscale(1) contrast(1.1)"],["따뜻하게","sepia(.25) saturate(1.2) contrast(1.05)"],["페이드","contrast(.9) saturate(.85) brightness(1.06)"],["쨍하게","saturate(1.35) contrast(1.08)"]];
-const SY=[["클래식","c"],["필름","f"],["도트","d"],["하트","h"],["별","t"],["꽃","w"],["반짝","k"],["줄무늬","s"],["체크","g"],["노트","n"],["라인","l"]],FONTS=[["주아","Jua",1],["개구쟁이","Gaegu",1.1],["하이멜로디","Hi Melody",1.1],["감자꽃","Gamja Flower",1.1],["싱글데이","Single Day",1],["푸어스토리","Poor Story",1.05],["귀여운체","Cute Font",1],["연성","Yeon Sung",1],["동글","Dongle",1.4],["베이글팻","Bagel Fat One",.95],["구기","Gugi",.95],["기랑해랑","Kirang Haerang",1],["도현","Do Hyeon",1],["블랙한산스","Black Han Sans",.95],["동해독도","East Sea Dokdo",1.3],["펜스크립트","Nanum Pen Script",1.35],["붓글씨","Nanum Brush Script",1.3],["송명","Song Myung",1],["고운바탕","Gowun Batang",1],["스타일리시","Stylish",1]],FX=[["기본","n"],["외곽선","o"],["입체","d"],["형광펜","m"]];
-const SK=[["하트",["💗","💖","💕","💘","🩷","💜","💌","💋"]],["반짝",["✨","⭐","🌟","💫","🌈","☁️","🌙","🔮"]],["귀여워",["🎀","🧸","🐰","🐱","🐶","🐻","🐥","🐹"]],["꽃·과일",["🌸","🌷","🌼","🍒","🍓","🍑","🍋","🍭"]],["파티",["🎉","🎈","🎂","🍰","🎁","🎵","📸","👑"]],["표정",["😍","🥰","😎","🤪","🥹","😜","🫶","✌️"]]];
+const FL=[["📸 원본",""],["⚫ 흑백","grayscale(1) contrast(1.1)"],["☀️ 따뜻하게","sepia(.25) saturate(1.2) contrast(1.05)"],["🌫️ 페이드","contrast(.9) saturate(.85) brightness(1.06)"],["✨ 쨍하게","saturate(1.35) contrast(1.08)"]];
+const SY=[["클래식","c"],["필름","f"],["도트","d"],["하트","h"],["별","t"],["꽃","w"],["반짝","k"],["줄무늬","s"],["체크","g"],["노트","n"],["라인","l"]],FONTS=[["주아","Jua",1],["개구쟁이","Gaegu",1.1],["하이멜로디","Hi Melody",1.1],["감자꽃","Gamja Flower",1.1],["싱글데이","Single Day",1],["푸어스토리","Poor Story",1.05],["귀여운체","Cute Font",1],["연성","Yeon Sung",1],["동글","Dongle",1.4],["구기","Gugi",.95],["기랑해랑","Kirang Haerang",1],["도현","Do Hyeon",1],["동해독도","East Sea Dokdo",1.3],["펜스크립트","Nanum Pen Script",1.35],["붓글씨","Nanum Brush Script",1.3],["송명","Song Myung",1],["고운바탕","Gowun Batang",1],["스타일리시","Stylish",1]],FX=[["기본","n"],["외곽선","o"],["입체","d"],["형광펜","m"]];
+const SK=[["꽃·자연",["🌸","🌷","🌼","🌻","🌿","🍀","🌱","🌵","🍄","🌹","🪻","🌺"]],["동물",["🐱","🐶","🐰","🦊","🐻","🐼","🐸","🦋","🐝","🐞","🦔","🦦"]],["입체·반짝",["💎","🫧","✨","🌟","💫","🪩","🌈","☁️","🌙","⭐","🪄","🎀"]],["과일·간식",["🍓","🍒","🍑","🍋","🍊","🍉","🍇","🧁","🍭","🍬","🍡","🍰"]],["하트·귀여움",["💗","💖","💕","💘","🩷","🧸","🎀","🩰","💌","🫶","🩵","💜"]],["파티",["🎉","🎈","🎂","🎁","📸","👑","🎵","🪅","🧃","🪄","💐","🌷"]]];
 const S={fx:"n",tz:6,step:0,bg:0,sy:"c",fl:0,sel:0,ft:0,sk:0,ss:-1,dt:true,dv:new Date().toLocaleDateString("sv-SE"),cap:"",st:[],c:[0,1,2,3].map(()=>({b:null,u:"",z:1,x:0,y:0}))};
 const cv=$("cv"),cx=cv.getContext("2d");let DL=null,blob=null,pickAt=null,drag=null;
 function rr(c,x,y,w,h,r){c.beginPath();c.moveTo(x+r,y);c.arcTo(x+w,y,x+w,y+h,r);c.arcTo(x+w,y+h,x,y+h,r);c.arcTo(x,y+h,x,y,r);c.arcTo(x,y,x+w,y,r);c.closePath()}
-function hid(x,y,r){return x>PX-r-3&&x<PX+CW+r+3&&[0,1,2,3].some(i=>{const y0=PAD+i*(CH+GAP);return y>y0-r-3&&y<y0+CH+r+3})}
+function hid(x,y,r){return x>PX-r-3&&x<PX+CW+r+3&&[0,1,2,3].some(i=>{const y0=PAD+i*(CH+photoGap);return y>y0-r-3&&y<y0+CH+r+3})}
 function tiles(c,f,r,al){c.globalAlpha=al;const p=35.25,py=p*.866;for(let k=0,y=18;y<H;k++,y+=py)for(let j=-9;j<=9;j++){const x=W/2+(j+(k%2?.5:0))*p;if(x>=r+2&&x<=W-r-2&&!hid(x,y,r))f(c,x,y,r)}c.globalAlpha=1}
 function star(c,x,y,r,n,k){c.beginPath();for(let i=0;i<n*2;i++){const a=-Math.PI/2+i*Math.PI/n,q=i%2?r*k:r;c[i?"lineTo":"moveTo"](x+q*Math.cos(a),y+q*Math.sin(a))}c.closePath();c.fill()}
 const SH={d:(c,x,y,r)=>{c.beginPath();c.arc(x,y,r,0,7);c.fill()},h:(c,x,y,r)=>{c.beginPath();c.moveTo(x,y+r*.9);c.bezierCurveTo(x-r*1.5,y-r*.1,x-r*.9,y-r*1.1,x,y-r*.35);c.bezierCurveTo(x+r*.9,y-r*1.1,x+r*1.5,y-r*.1,x,y+r*.9);c.fill()},t:(c,x,y,r)=>star(c,x,y,r,5,.45),k:(c,x,y,r)=>star(c,x,y,r,4,.22),w:(c,x,y,r)=>{c.beginPath();for(let i=0;i<5;i++){const a=i*Math.PI*2/5-Math.PI/2,px=x+r*.55*Math.cos(a),py=y+r*.55*Math.sin(a);c.moveTo(px+r*.45,py);c.arc(px,py,r*.45,0,7)}c.fill()}},SR={d:6,h:9,t:10,k:11,w:9};
@@ -114,9 +145,12 @@ if(y=="n"){c.globalAlpha=.22;c.lineWidth=1.5;c.beginPath();for(let a=0;a<H;a+=30
 if(y=="l"){c.globalAlpha=.75;c.lineWidth=3;rr(c,9,9,W-18,H-18,12);c.stroke();c.lineWidth=1.5;rr(c,16,16,W-32,H-32,8);c.stroke()}
 if(y=="f"){c.globalAlpha=.55;for(let a=18;a<H;a+=44){rr(c,9,a,14,22,4);c.fill();rr(c,W-23,a,14,22,4);c.fill()}}
 c.globalAlpha=1}
-function cell(c,i,ui){const k=S.c[i],x=PX,y=PAD+i*(CH+GAP);c.save();rr(c,x,y,CW,CH,6);c.clip();
-if(k.b){const m=Math.max(CW/k.b.width,CH/k.b.height)*k.z,w=k.b.width*m,h=k.b.height*m,mx=(w-CW)/2,my=(h-CH)/2;k.x=Math.max(-mx,Math.min(mx,k.x));k.y=Math.max(-my,Math.min(my,k.y));c.filter=FL[S.fl][1]||"none";c.drawImage(k.b,x+(CW-w)/2+k.x,y+(CH-h)/2+k.y,w,h);c.filter="none"}
-else if(ui){c.fillStyle="rgba(128,128,140,.16)";c.fillRect(x,y,CW,CH)}
+function cell(c,i,ui){const k=S.c[i],x=PX,y=PAD+i*(CH+photoGap),t=Math.max(0,frameThickness),ix=x+t,iy=y+t,iw=Math.max(1,CW-2*t),ih=Math.max(1,CH-2*t),ir=Math.max(0,cornerRadius-t);
+// Reveal the selected background/frame underneath by shrinking the photo only;
+// do not paint a separate solid-color border around the photo.
+c.save();rr(c,ix,iy,iw,ih,ir);c.clip();
+if(k.b){const m=Math.max(iw/k.b.width,ih/k.b.height)*k.z,w=k.b.width*m,h=k.b.height*m,mx=(w-iw)/2,my=(h-ih)/2;k.x=Math.max(-mx,Math.min(mx,k.x));k.y=Math.max(-my,Math.min(my,k.y));c.filter=FL[S.fl][1]||"none";c.drawImage(k.b,ix+(iw-w)/2+k.x,iy+(ih-h)/2+k.y,w,h);c.filter="none"}
+else if(ui){c.fillStyle="rgba(128,128,140,.16)";c.fillRect(ix,iy,iw,ih)}
 c.restore();
 if(!k.b&&ui){c.fillStyle="rgba(90,90,110,.85)";c.textAlign="center";c.font='500 26px "Noto Sans KR",sans-serif';c.fillText("+ 사진 추가",W/2,y+CH/2+9)}
 if(ui&&S.sel==i){rr(c,x-5,y-5,CW+10,CH+10,10);c.strokeStyle="#5b4bff";c.lineWidth=4;c.stroke()}}
@@ -125,28 +159,88 @@ const EMO=',"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji"',lum=x=>{con
 function txt(c){const F=FONTS[S.ft],f='"'+F[1]+'","Jua",sans-serif'+EMO,ink=BG[S.bg][2],K=.5+(S.tz-1)*.1;c.textAlign="center";c.textBaseline="alphabetic";c.lineJoin="round";
 const T=[];if(S.dt&&S.dv)T.push([S.dv.replaceAll("-","."),58]);if(S.cap)T.push([S.cap,56]);
 const P=T.map(([t,z])=>{const q=fit(c,t,Math.round(Math.min(68*K,z*F[2]*K)),f);return[t,q,c.measureText(t).width]});
-let y=PAD+4*CH+3*GAP+74;if(P.length){const bt=y+P.slice(0,-1).reduce((a,p)=>a+p[1]*1.22,0)+P[P.length-1][1]*.25;if(bt>1960)y-=bt-1960;y=Math.max(y,PAD+4*CH+3*GAP+8+P[0][1]*.82)}
-P.forEach(([t,q,w])=>{c.font=q+"px "+f;
+let y=PAD+4*CH+3*photoGap+74;if(P.length){const bt=y+P.slice(0,-1).reduce((a,p)=>a+p[1]*1.22,0)+P[P.length-1][1]*.25;if(bt>1960)y-=bt-1960;y=Math.max(y,PAD+4*CH+3*photoGap+8+P[0][1]*.82)}
+P.forEach(([t,q,w],idx)=>{c.font=q+"px "+f;
 if(S.fx=="m"){c.globalAlpha=.2;c.fillStyle=ink;rr(c,W/2-w/2-14,y-q*.85,w+28,q*1.1,q*.3);c.fill();c.globalAlpha=1}
 if(S.fx=="d"){c.globalAlpha=.32;c.fillStyle=ink;c.fillText(t,W/2+q*.07,y+q*.09);c.globalAlpha=1}
 if(S.fx=="o"){c.lineWidth=q*.2;c.strokeStyle=ink;c.strokeText(t,W/2,y);c.fillStyle=lum(ink)>.6?"#2a2140":"#fff"}else c.fillStyle=ink;
 c.fillText(t,W/2,y);y+=q*1.22});
-c.fillStyle=ink;fit(c,"✦ 인생네컷 ✦",44,'"Jua",sans-serif');c.globalAlpha=.85;c.fillText("✦ 인생네컷 ✦",W/2,H-30);c.globalAlpha=1}
-function sb(t){if(t.b){const r=t.s/Math.max(t.b.width,t.b.height);return[t.b.width*r/2,t.b.height*r/2]}return[t.s/2,t.s/2]}
-function draw(c,s,ui){c.setTransform(s,0,0,s,0,0);bg(c);for(let i=0;i<4;i++)cell(c,i,ui);txt(c);S.st.forEach((t,j)=>{const[hw,hh]=sb(t);if(t.b){c.save();c.shadowColor="#fff";for(const[a,d]of[[1,0],[-1,0],[0,1],[0,-1],[1,1],[-1,-1],[1,-1],[-1,1]]){c.shadowOffsetX=a*8*s;c.shadowOffsetY=d*8*s;c.drawImage(t.b,t.x-hw,t.y-hh,hw*2,hh*2)}c.restore();c.drawImage(t.b,t.x-hw,t.y-hh,hw*2,hh*2)}else{c.textBaseline="middle";c.textAlign="center";c.fillStyle="#000";c.font=t.s+'px "Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif';c.fillText(t.e,t.x,t.y);c.textBaseline="alphabetic"}
+c.fillStyle=ink;const lf=FONTS[logoFont]||FONTS[0];fit(c,logoText,logoSize*lf[2],'"'+lf[1]+'",sans-serif');c.font=(logoSize*lf[2])+'px "'+lf[1]+'",sans-serif';c.globalAlpha=.85;c.fillText(logoText,W/2,H-30);c.globalAlpha=1}
+function sb(t){if(t.b){const r=t.s/Math.max(t.b.width,t.b.height);return[t.b.width*r/2,t.b.height*r/2]}if(t.text){cx.save();cx.font=`700 ${t.s}px "${t.font||"Jua"}","Noto Sans KR",sans-serif`;const w=cx.measureText(t.text).width;cx.restore();return[Math.max(t.s/2,w/2+8),t.s*.68]}return[t.s/2,t.s/2]}
+function stickerHit(t,x,y,scale=1){const [hw,hh]=sb(t);return Math.abs(x-t.x*scale)<Math.max(14,hw*scale)&&Math.abs(y-t.y*scale)<Math.max(14,hh*scale)}
+function drawGapPatterns(c){const y=S.sy,fn=SH[y];if(!fn||!['d','h','t','w','k'].includes(y))return;c.save();c.globalAlpha=y==='d'?.3:.34;c.fillStyle=BG[S.bg][2];for(let i=0;i<3;i++){const gy=PAD+(i+1)*CH+i*photoGap+photoGap/2;c.save();c.beginPath();c.rect(PX,gy-photoGap/2,CW,photoGap);c.clip();for(let x=PX+17;x<PX+CW;x+=35)fn(c,x,gy,SR[y]);c.restore();}c.restore()}
+function draw(c,s,ui){c.setTransform(s,0,0,s,0,0);bg(c);for(let i=0;i<4;i++)cell(c,i,ui);drawGapPatterns(c);txt(c);S.st.forEach((t,j)=>{const[hw,hh]=sb(t);if(t.text){c.save();c.textAlign="center";c.textBaseline="middle";c.font=`700 ${t.s}px "${t.font||"Jua"}","Noto Sans KR",sans-serif`;c.lineWidth=Math.max(3,t.s*.12);c.strokeStyle="#fff";c.fillStyle=t.color||"#ff4f9a";c.shadowColor="rgba(0,0,0,.22)";c.shadowBlur=8;c.strokeText(t.text,t.x,t.y);c.fillText(t.text,t.x,t.y);c.restore()}else if(t.b){c.save();c.shadowColor="#fff";for(const[a,d]of[[1,0],[-1,0],[0,1],[0,-1],[1,1],[-1,-1],[1,-1],[-1,1]]){c.shadowOffsetX=a*8*s;c.shadowOffsetY=d*8*s;c.drawImage(t.b,t.x-hw,t.y-hh,hw*2,hh*2)}c.restore();c.drawImage(t.b,t.x-hw,t.y-hh,hw*2,hh*2)}else{c.textBaseline="middle";c.textAlign="center";c.fillStyle="#000";c.font=t.s+'px "Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif';c.fillText(t.e,t.x,t.y);c.textBaseline="alphabetic"}
 if(ui&&S.ss==j){rr(c,t.x-hw-6,t.y-hh-6,hw*2+12,hh*2+12,10);c.setLineDash([10,8]);c.strokeStyle="#ff5fa2";c.lineWidth=3;c.stroke();c.setLineDash([])}})}
-const render=()=>draw(cx,2,true);
+const mini=$("mini"),mc=mini.getContext("2d");
+const miniGeom=()=>{const margin=24,g=18,cw=(mini.width-margin*2-g)/2,ch=310;return {margin,g,cw,ch}};
+function projectPoint(x,y){const {margin,g,cw,ch}=miniGeom();const i=Math.floor((y-PAD)/(CH+photoGap));if(i>=0&&i<4){const yy=PAD+i*(CH+photoGap);return {x:margin+(i%2)*(cw+g)+(x-PX)/CW*cw,y:margin+Math.floor(i/2)*(ch+g)+(y-yy)/CH*ch,scale:cw/CW,i,region:"photo"}}const footerStart=PAD+4*CH+3*photoGap;return {x:mini.width/2+(x-W/2)*(mini.width/W),y:680+(y-footerStart)/(H-footerStart)*220,scale:mini.width/W,i:4,region:"footer"}}
+function unprojectPoint(x,y){const {margin,g,cw,ch}=miniGeom();let i;if(y<margin+ch+g/2)i=x<mini.width/2?0:1;else if(y<margin+2*ch+g)i=x<mini.width/2?2:3;else i=4;if(i<4){const tx=margin+(i%2)*(cw+g),ty=margin+Math.floor(i/2)*(ch+g),yy=PAD+i*(CH+photoGap);return [PX+(x-tx)/cw*CW,yy+(y-ty)/ch*CH]}const footerStart=PAD+4*CH+3*photoGap;return [W/2+(x-mini.width/2)*W/mini.width,footerStart+(y-680)/220*(H-footerStart)]}
+function miniPos(e){const r=mini.getBoundingClientRect();return [(e.clientX-r.left)*mini.width/r.width,(e.clientY-r.top)*mini.height/r.height]}
+mini.style.touchAction="none";mini.style.pointerEvents="auto";cv.style.touchAction="none";
+mini.onpointerdown=e=>{e.preventDefault();const [x,y]=miniPos(e);mini.setPointerCapture(e.pointerId);
+ for(let j=S.st.length-1;j>=0;j--){const t=S.st[j],p=projectPoint(t.x,t.y),[hw,hh]=sb(t),scale=p.scale||.45;if(Math.abs(x-p.x)<Math.max(16,hw*scale+8)&&Math.abs(y-p.y)<Math.max(16,hh*scale+8)){S.ss=j;drag={t:"s",s:t,x,y,m:0};ui();return}}
+ const {margin,g,cw,ch}=miniGeom();let i=-1;for(let j=0;j<4;j++){const tx=margin+(j%2)*(cw+g),ty=margin+Math.floor(j/2)*(ch+g);if(x>=tx&&x<=tx+cw&&y>=ty&&y<=ty+ch){i=j;break}}if(i<0)return;S.sel=i;S.ss=-1;drag={t:"c",i,x,y,m:0};ui()};
+mini.onpointermove=e=>{if(!drag)return;e.preventDefault();const [x,y]=miniPos(e),dx=x-drag.x,dy=y-drag.y;drag.m+=Math.abs(dx)+Math.abs(dy);if(drag.t==="s"){const [ox,oy]=unprojectPoint(x,y);drag.s.x=ox;drag.s.y=oy}else{const k=S.c[drag.i];if(k.b){const {cw,ch}=miniGeom();k.x+=dx*CW/cw;k.y+=dy*CH/ch}}drag.x=x;drag.y=y;render()};
+mini.onpointerup=()=>{if(drag&&drag.t==="c"&&!S.c[drag.i].b&&drag.m<6)pick(drag.i);drag=null;ui()};mini.onpointercancel=()=>{drag=null};
+function drawMini(){
+ mc.clearRect(0,0,mini.width,mini.height);
+ const margin=24,g=18,cw=(mini.width-margin*2-g)/2,ch=310;
+ const col=BG[S.bg][1].split("|");mc.fillStyle=col[0];mc.fillRect(0,0,mini.width,mini.height);
+ if(col[1]){const gr=mc.createLinearGradient(0,0,mini.width,mini.height);gr.addColorStop(0,col[0]);gr.addColorStop(1,col[1]);mc.fillStyle=gr;mc.fillRect(0,0,mini.width,mini.height)}
+ // lightweight decorative preview, matching the selected frame theme
+ mc.save();mc.globalAlpha=.22;mc.fillStyle=BG[S.bg][2];
+ if(S.sy==="h"){for(let i=0;i<18;i++){const x=(i*137+31)%mini.width,y=(i*83+20)%mini.height;mc.font="28px sans-serif";mc.fillText("♥",x,y)}}
+ else if(S.sy==="t"||S.sy==="k"){for(let i=0;i<24;i++){const x=(i*113+19)%mini.width,y=(i*67+15)%mini.height;mc.font="24px sans-serif";mc.fillText("✦",x,y)}}
+ else if(S.sy==="w"){for(let i=0;i<18;i++){const x=(i*137+31)%mini.width,y=(i*83+20)%mini.height;mc.font="24px sans-serif";mc.fillText("✿",x,y)}} else if(S.sy==="s"){mc.lineWidth=10;for(let x=-mini.height;x<mini.width;x+=60){mc.beginPath();mc.moveTo(x,0);mc.lineTo(x+mini.height,mini.height);mc.stroke()}} else if(S.sy==="g"){for(let y=0;y<mini.height;y+=40)for(let x=0;x<mini.width;x+=40)if((x/40+y/40)%2===0)mc.fillRect(x,y,20,20)} else if(S.sy==="f"){for(let y=15;y<mini.height;y+=45){mc.fillRect(8,y,10,20);mc.fillRect(mini.width-18,y,10,20)}} else if(S.sy==="n"){mc.lineWidth=1;for(let y=0;y<mini.height;y+=28){mc.beginPath();mc.moveTo(0,y);mc.lineTo(mini.width,y);mc.stroke()}} else if(S.sy==="l"){mc.lineWidth=3;mc.strokeRect(10,10,mini.width-20,mini.height-20)}
+ mc.restore();
+ for(let i=0;i<4;i++){const sx=PX*2,sy=(PAD+i*(CH+photoGap))*2,sw=CW*2,sh=CH*2,x=margin+(i%2)*(cw+g),y=margin+Math.floor(i/2)*(ch+g);mc.save();rr(mc,x,y,cw,ch,Math.min(60,cornerRadius*1.5));mc.clip();mc.drawImage(cv,sx,sy,sw,sh,x,y,cw,ch);mc.restore()}
+ // Show stickers in the 2x2 preview and keep them draggable there.
+ S.st.forEach((t,j)=>{const p=projectPoint(t.x,t.y),sc=p.scale||.45;mc.save();mc.textAlign="center";mc.textBaseline="middle";if(t.text){mc.font=`700 ${Math.max(12,t.s*sc)}px "${t.font||"Jua"}","Noto Sans KR",sans-serif`;mc.lineWidth=Math.max(2,t.s*sc*.12);mc.strokeStyle="#fff";mc.fillStyle=t.color||"#ff4f9a";mc.strokeText(t.text,p.x,p.y);mc.fillText(t.text,p.x,p.y)}else if(t.b){const [hw,hh]=sb(t);mc.drawImage(t.b,p.x-hw*sc,p.y-hh*sc,hw*2*sc,hh*2*sc)}else{mc.font=`${Math.max(16,t.s*sc)}px "Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif`;mc.fillText(t.e,p.x,p.y)}if(S.ss===j){mc.strokeStyle="#ff5fa2";mc.lineWidth=3;mc.setLineDash([7,5]);mc.strokeRect(p.x-18,p.y-18,36,36);mc.setLineDash([])}mc.restore()});
+ mc.fillStyle=BG[S.bg][2];mc.textAlign="center";mc.textBaseline="middle";
+ let y=mini.height-118;
+ if(S.dt&&S.dv){mc.font=`${Math.max(12,Math.min(52,58*(.5+(S.tz-1)*.1)*.62*FONTS[S.ft][2]))}px "${FONTS[S.ft][1]}",sans-serif`;if(S.fx==="o"){mc.lineWidth=2;mc.strokeStyle=BG[S.bg][2];mc.strokeText(S.dv.replaceAll("-","."),mini.width/2,y)}if(S.fx==="d"){mc.shadowColor="rgba(0,0,0,.35)";mc.shadowBlur=4;mc.shadowOffsetY=3}if(S.fx==="m"){mc.fillStyle=col[1]||"#ffc2dc";mc.fillRect(mini.width*.22,y-15,mini.width*.56,25);mc.fillStyle=BG[S.bg][2]}mc.fillText(S.dv.replaceAll("-","."),mini.width/2,y);mc.shadowColor="transparent";mc.shadowOffsetY=0;y+=30}
+ if(S.cap){mc.font=`${Math.max(12,Math.min(52,56*(.5+(S.tz-1)*.1)*.62*FONTS[S.ft][2]))}px "${FONTS[S.ft][1]}",sans-serif`;if(S.fx==="o"){mc.lineWidth=2;mc.strokeStyle=BG[S.bg][2];mc.strokeText(S.cap,mini.width/2,y)}if(S.fx==="d"){mc.shadowColor="rgba(0,0,0,.35)";mc.shadowBlur=4;mc.shadowOffsetY=3}if(S.fx==="m"){mc.fillStyle=col[1]||"#ffc2dc";mc.fillRect(mini.width*.18,y-18,mini.width*.64,28);mc.fillStyle=BG[S.bg][2]}mc.fillText(S.cap,mini.width/2,y);mc.shadowColor="transparent";mc.shadowOffsetY=0;y+=32}
+ mc.font=`${Math.max(12,logoSize*(FONTS[logoFont]||FONTS[0])[2])}px "${(FONTS[logoFont]||FONTS[0])[1]}",sans-serif`;mc.fillText(logoText,mini.width/2,mini.height-28);
+}
+const render=()=>{draw(cx,2,true);drawMini()};
+function fillFontDropdown(id, useIndex=false){
+ const el=$(id);
+ el.innerHTML=FONTS.map(([n,f],i)=>`<option value="${useIndex?i:f}" style="font-family:'${f}',sans-serif">${n}　가나다 ABC 123</option>`).join("");
+}
+fillFontDropdown("stickerFont");
+fillFontDropdown("ft",true);
+fillFontDropdown("logoFont",true);
+$("stickerFont").value="Jua";
+$("ft").value=String(S.ft);
+function syncFontPreview(id, useIndex=false){const el=$(id);const i=useIndex?Number(el.value):FONTS.findIndex(([,f])=>f===el.value);if(i>=0&&FONTS[i])el.style.fontFamily=`"${FONTS[i][1]}",sans-serif`;}
+syncFontPreview("stickerFont");syncFontPreview("ft",true);syncFontPreview("logoFont",true);
+// On mobile, replace native select dropdowns with a font-rendered list; Android ignores option font-family.
+function installMobileFontPicker(id,useIndex=false){
+ const select=$(id); if(!select)return;
+ const wrap=document.createElement("div");wrap.className="mobile-font-picker";wrap.dataset.for=id;
+ const current=document.createElement("button");current.type="button";current.className="mobile-font-current";
+ const options=document.createElement("div");options.className="mobile-font-options";options.setAttribute("role","listbox");
+ FONTS.forEach(([name,f],i)=>{const b=document.createElement("button");b.type="button";b.className="mobile-font-option";b.dataset.value=String(useIndex?i:f);b.setAttribute("role","option");b.textContent=`${name}　가나다 ABC 123`;b.style.fontFamily=`"${f}",sans-serif`;b.addEventListener("click",()=>{select.value=b.dataset.value;select.dispatchEvent(new Event("change",{bubbles:true}));sync();wrap.classList.remove("open")});options.appendChild(b)});
+ function sync(){const i=useIndex?Number(select.value):FONTS.findIndex(([,f])=>f===select.value);const font=FONTS[i]||FONTS[0];current.textContent=`${font[0]}　가나다 ABC 123`;current.style.fontFamily=`"${font[1]}",sans-serif`;options.querySelectorAll("button").forEach(b=>b.setAttribute("aria-selected",String(b.dataset.value===select.value)))}
+ current.addEventListener("click",()=>{document.querySelectorAll(".mobile-font-picker.open").forEach(w=>{if(w!==wrap)w.classList.remove("open")});wrap.classList.toggle("open")});
+ select.addEventListener("change",sync);wrap.append(current,options);select.insertAdjacentElement("afterend",wrap);sync();
+}
+installMobileFontPicker("ft",true);installMobileFontPicker("stickerFont");installMobileFontPicker("logoFont",true);
+document.addEventListener("click",e=>{if(!e.target.closest(".mobile-font-picker"))document.querySelectorAll(".mobile-font-picker.open").forEach(w=>w.classList.remove("open"))});
+
+function updateSelectedTextStyle(){if(S.ss<0||!S.st[S.ss].text)return;S.st[S.ss].color=$("stickerColor").value;S.st[S.ss].font=$("stickerFont").value;syncFontPreview("stickerFont");document.fonts.load(`700 42px "${S.st[S.ss].font}"`,S.st[S.ss].text).then(render);render()}
+$("stickerColor").oninput=updateSelectedTextStyle;$("stickerFont").onchange=updateSelectedTextStyle;
 function ui(){const k=S.c[S.sel];
 $("slots").innerHTML=S.c.map((k,i)=>`<div class="slot${S.sel==i?" on":""}" data-i="${i}" role="button" tabindex="0" aria-label="${i+1}번째 컷" style="${k.u?`background-image:url(${k.u})`:""}">${k.b?`<button class="x" data-x="${i}" aria-label="${i+1}번째 사진 지우기">×</button>`:"+"}</div>`).join("");
-$("zm").value=k.z;$("zm").disabled=!k.b;$("zo").textContent=ZL(k.z);document.querySelectorAll('.pm[data-r="zm"]').forEach(b=>b.disabled=!k.b);$("tz").value=S.tz;$("to").textContent=S.tz;
+$("zm").value=ZL(k.z);$("zm").disabled=!k.b;$("zo").textContent=ZL(k.z);document.querySelectorAll('.pm[data-r="zm"]').forEach(b=>b.disabled=!k.b);$("tz").value=S.tz;$("to").textContent=S.tz;
 $("sw").innerHTML=BG.map((b,i)=>`<button class="swb" data-bg="${i}" aria-pressed="${S.bg==i}" aria-label="${b[0]}" title="${b[0]}" style="background:${b[1].includes("|")?`linear-gradient(135deg,${b[1].split("|").join(",")})`:b[1]}"></button>`).join("");
 $("sty").innerHTML=SY.map(([n,v])=>`<button data-sy="${v}" aria-pressed="${S.sy==v}">${n}</button>`).join("");
 $("fl").innerHTML=FL.map(([n],i)=>`<button class="chip" data-fl="${i}" aria-pressed="${S.fl==i}">${n}</button>`).join("");
-$("ft").innerHTML=FONTS.map(([n,f],i)=>`<button data-ft="${i}" aria-pressed="${S.ft==i}" style="font-family:'${f}',sans-serif;font-size:17px">${n}</button>`).join("");
+$("ft").value=String(S.ft);
 $("fx").innerHTML=FX.map(([n,v])=>`<button data-fx="${v}" aria-pressed="${S.fx==v}">${n}</button>`).join("");
 $("sk").innerHTML=SK.map(([n],i)=>`<button data-sk="${i}" aria-pressed="${S.sk==i}">${n}</button>`).join("");
 $("stk").innerHTML=SK[S.sk][1].map(e=>`<button class="chip em" data-e="${e}" aria-label="스티커 ${e} 추가">${e}</button>`).join("");
-steps();$("ss").disabled=S.ss<0;$("del").disabled=S.ss<0;if(S.ss>=0)$("ss").value=S.st[S.ss].s;document.querySelectorAll('.pm[data-r="ss"]').forEach(b=>b.disabled=S.ss<0);$("so").textContent=S.ss>=0?SL(S.st[S.ss].s):"";
+steps();$("borderSize").value=BL(frameThickness);$("bo").textContent=BL(frameThickness);$("roundSize").value=RL(cornerRadius);$("ro").textContent=RL(cornerRadius);$("logoText").value=logoText;$("logoFont").value=String(logoFont);syncFontPreview("logoFont",true);$("logoSize").value=LL(logoSize);$("logoOut").textContent=LL(logoSize);$("ss").disabled=S.ss<0;$("del").disabled=S.ss<0;if(S.ss>=0)$("ss").value=SL(S.st[S.ss].s);document.querySelectorAll('.pm[data-r="ss"]').forEach(b=>b.disabled=S.ss<0);$("so").textContent=S.ss>=0?SL(S.st[S.ss].s):"";if(S.ss>=0&&S.st[S.ss].text){$("stickerColor").value=S.st[S.ss].color||"#ff4f9a";$("stickerFont").value=S.st[S.ss].font||"Jua";syncFontPreview("stickerFont");}
 render()}
 async function load(f){try{return await createImageBitmap(f,{imageOrientation:"from-image"})}catch(e){return new Promise((ok,no)=>{const i=new Image();i.onload=()=>ok(i);i.onerror=no;i.src=URL.createObjectURL(f)})}}
 async function add(fs,at){fs=[...fs].filter(f=>f.type.startsWith("image/"));if(!fs.length)return;const ix=[0,1,2,3],em=ix.filter(i=>!S.c[i].b&&i!=at),fi=ix.filter(i=>S.c[i].b&&i!=at),order=(at!=null?[at]:[]).concat(em,fi);
@@ -160,39 +254,65 @@ $("sty").onclick=e=>{const b=e.target.closest("[data-sy]");if(b){S.sy=b.dataset.
 $("fl").onclick=e=>{const b=e.target.closest("[data-fl]");if(b){S.fl=+b.dataset.fl;ui()}};
 $("sk").onclick=e=>{const b=e.target.closest("[data-sk]");if(b){S.sk=+b.dataset.sk;ui()}};
 function lf(){return document.fonts.load('56px "'+FONTS[S.ft][1]+'"',S.cap+S.dv+"0123456789.-/ 인생네컷").then(render)}
-$("ft").onclick=e=>{const b=e.target.closest("[data-ft]");if(b){S.ft=+b.dataset.ft;lf();ui()}};
+$("ft").onchange=e=>{S.ft=+e.target.value;syncFontPreview("ft",true);lf();render()};
 $("fx").onclick=e=>{const b=e.target.closest("[data-fx]");if(b){S.fx=b.dataset.fx;ui()}};
-const STEPS=[["📷","사진"],["🎨","프레임"],["🪄","필터"],["✏️","문구"],["🎀","스티커"],["💾","저장"]];
-function steps(){$("tabs").innerHTML=STEPS.map(([e,n],i)=>`<button data-st="${i}" aria-current="${S.step==i}"><span>${e}</span>${n}</button>`).join("");document.querySelectorAll(".sec[data-s]").forEach(s=>s.hidden=+s.dataset.s!=S.step);$("pv").disabled=S.step==0;$("nx").hidden=S.step==5;$("nx").textContent=S.step==4?"완성하러 가기":"다음 단계"}
+const STEPS=[["📷","사진"],["🎨","프레임"],["🌈","필터"],["✏️","문구"],["🎀","스티커"],["💾","저장"]];
+function steps(){$("tabs").innerHTML=STEPS.map(([e,n],i)=>`<button data-st="${i}" aria-current="${S.step==i}"><span>${e}</span>${n}</button>`).join("");document.querySelectorAll(".sec[data-s]").forEach(s=>s.hidden=+s.dataset.s!=S.step);}
 function go(n){S.step=Math.max(0,Math.min(5,n));steps();$("pn").scrollTop=0}
-$("tabs").onclick=e=>{const b=e.target.closest("[data-st]");if(b)go(+b.dataset.st)};$("pv").onclick=()=>go(S.step-1);$("nx").onclick=()=>go(S.step+1);
-const stg=document.querySelector(".stage"),fitCv=()=>{const p=innerWidth<900?12:34;cv.style.maxHeight=Math.max(120,stg.clientHeight-p*2)+"px";cv.style.maxWidth=Math.max(80,stg.clientWidth-p*2)+"px"};new ResizeObserver(fitCv).observe(stg);
-const spot=()=>[W/2,PAD+S.sel*(CH+GAP)+CH/2];
+$("tabs").onclick=e=>{const b=e.target.closest("[data-st]");if(b)go(+b.dataset.st)};
+const stg=document.querySelector(".stage");
+const spot=()=>[W/2,PAD+S.sel*(CH+photoGap)+CH/2];
 $("stk").onclick=e=>{const b=e.target.closest("[data-e]");if(b){const[x,y]=spot();S.st.push({e:b.dataset.e,x,y,s:110});S.ss=S.st.length-1;ui()}};
 $("img").onclick=()=>$("fs").click();
 $("fs").onchange=async()=>{for(const f of $("fs").files){if(!f.type.startsWith("image/"))continue;try{const[x,y]=spot();S.st.push({b:await load(f),x,y,s:240});S.ss=S.st.length-1}catch(e){}}$("fs").value="";ui()};
-const SL=s=>Math.max(1,Math.min(10,Math.round(1+(s-40)*9/380))),SV=l=>Math.round(40+(l-1)*380/9);
-function sset(v){if(S.ss<0)return;const t=S.st[S.ss];t.s=Math.max(40,Math.min(420,v));$("ss").value=t.s;$("so").textContent=SL(t.s);render()}
-$("ss").oninput=e=>sset(+e.target.value);
+const SL=s=>Math.max(1,Math.min(10,Math.round(1+(s-40)*9/380))),SV=l=>Math.round(40+(l-1)*380/9), LV=v=>Math.max(1,Math.min(10,Math.round(v)));
+const ZL=z=>Math.max(1,Math.min(10,Math.round(1+(z-1)*9/2))),ZV=l=>1+(l-1)*2/9;
+const BL=v=>Math.max(1,Math.min(10,Math.round(1+v*9/24))),BV=l=>Math.round((l-1)*24/9);
+const RL=v=>Math.max(1,Math.min(10,Math.round(1+v*9/48))),RV=l=>Math.round((l-1)*48/9);
+const LL=v=>Math.max(1,Math.min(10,Math.round(1+(v-16)*9/84))),LVL=l=>Math.round(16+(l-1)*84/9);
+function sset(level){if(S.ss<0||!S.st[S.ss])return;const t=S.st[S.ss];const l=Math.max(1,Math.min(10,Math.round(Number(level)||1)));t.s=SV(l);$("ss").value=String(l);$("so").textContent=String(l);render()}
+$("ss").oninput=e=>sset(e.target.value);
 $("del").onclick=()=>{if(S.ss>=0){S.st.splice(S.ss,1);S.ss=-1;ui()}};
 $("clr").onclick=()=>{S.st=[];S.ss=-1;ui()};
-const ZL=z=>Math.round(1+(z-1)*9/2),ZV=l=>1+(l-1)*2/9;
-function zset(z){const k=S.c[S.sel];if(!k.b)return;k.z=Math.max(1,Math.min(3,z));$("zm").value=k.z;$("zo").textContent=ZL(k.z);render()}
-$("zm").oninput=e=>zset(+e.target.value);
+function zset(z){const k=S.c[S.sel];if(!k.b)return;k.z=Math.max(1,Math.min(3,z));$("zm").value=ZL(k.z);$("zo").textContent=ZL(k.z);render()}
+$("zm").oninput=e=>zset(ZV(+e.target.value));
 $("tz").oninput=e=>{S.tz=+e.target.value;$("to").textContent=S.tz;render()};
-$("pn").addEventListener("click",e=>{const b=e.target.closest(".pm");if(!b||b.disabled)return;const d=+b.dataset.d;if(b.dataset.r=="zm")zset(ZV(Math.max(1,Math.min(10,ZL(S.c[S.sel].z)+d))));else if(b.dataset.r=="ss")sset(SV(Math.max(1,Math.min(10,SL(S.st[S.ss].s)+d))));else{S.tz=Math.max(1,Math.min(10,S.tz+d));$("tz").value=S.tz;$("to").textContent=S.tz;render()}});
+
+$("borderSize").oninput=e=>{frameThickness=BV(+e.target.value);$("bo").textContent=e.target.value;render()};
+$("roundSize").oninput=e=>{cornerRadius=RV(+e.target.value);$("ro").textContent=e.target.value;render()};
+$("logoText").oninput=e=>{logoText=e.target.value||" ";render()};
+$("logoFont").onchange=e=>{logoFont=+e.target.value;syncFontPreview("logoFont",true);document.fonts.load(`44px "${FONTS[logoFont][1]}"`,logoText).then(render);render()};
+$("logoSize").oninput=e=>{logoSize=LVL(+e.target.value);$("logoOut").textContent=e.target.value;render()};
+
+$("addText").onclick=()=>{const text=$("stickerText").value.trim();if(!text)return;const[x,y]=spot();S.st.push({text,x,y,s:42,color:$("stickerColor").value||"#ff4f9a",font:$("stickerFont").value||"Jua"});S.ss=S.st.length-1;document.fonts.load(`700 42px "${$("stickerFont").value||"Jua"}"`,text).then(render);ui()};
+
+$("pn").addEventListener("click",e=>{const b=e.target.closest(".pm");if(!b||b.disabled)return;const d=+b.dataset.d,r=b.dataset.r;if(r=="zm")zset(ZV(Math.max(1,Math.min(10,ZL(S.c[S.sel].z)+d))));else if(r=="ss")sset(Math.max(1,Math.min(10,SL(S.st[S.ss].s)+d)));else if(r=="logoSize"){const l=Math.max(1,Math.min(10,LL(logoSize)+d));logoSize=LVL(l);$("logoSize").value=l;$("logoOut").textContent=l;render()}else if(r=="borderSize"){const l=Math.max(1,Math.min(10,BL(frameThickness)+d));frameThickness=BV(l);$("borderSize").value=l;$("bo").textContent=l;render()}else if(r=="roundSize"){const l=Math.max(1,Math.min(10,RL(cornerRadius)+d));cornerRadius=RV(l);$("roundSize").value=l;$("ro").textContent=l;render()}else{S.tz=Math.max(1,Math.min(10,S.tz+d));$("tz").value=S.tz;$("to").textContent=S.tz;render()}});
 $("dt").onchange=e=>{S.dt=e.target.checked;render()};$("dv").value=S.dv;$("dv").oninput=e=>{S.dv=e.target.value;render()};$("cp").oninput=e=>{S.cap=e.target.value;render();lf()};
+// Pointer coordinates are measured from the canvas's actual visible bounds.
+// The canvas itself is translated during mobile auto-pan, so adding the offset again
+// would double-compensate and make stickers impossible to select or drag.
 const pos=e=>{const r=cv.getBoundingClientRect();return[(e.clientX-r.left)*W/r.width,(e.clientY-r.top)*W/r.width]};
-cv.onpointerdown=e=>{const[x,y]=pos(e);cv.setPointerCapture(e.pointerId);
-for(let j=S.st.length-1;j>=0;j--){const t=S.st[j],[hw,hh]=sb(t);if(Math.abs(x-t.x)<hw&&Math.abs(y-t.y)<hh){S.ss=j;drag={t:"s",s:t,x,y,m:0};ui();return}}
-S.ss=-1;const i=[0,1,2,3].find(i=>{const cy=PAD+i*(CH+GAP);return x>=PX&&x<=PX+CW&&y>=cy&&y<=cy+CH});if(i==null){ui();return}S.sel=i;drag={t:"c",i,x,y,m:0};ui()};
-cv.onpointermove=e=>{if(!drag)return;const[x,y]=pos(e),dx=x-drag.x,dy=y-drag.y;drag.m+=Math.abs(dx)+Math.abs(dy);if(drag.t=="s"){drag.s.x+=dx;drag.s.y+=dy}else if(S.c[drag.i].b){S.c[drag.i].x+=dx;S.c[drag.i].y+=dy}drag.x=x;drag.y=y;render()};
-cv.onpointerup=()=>{if(drag&&drag.t=="c"&&!S.c[drag.i].b&&drag.m<6)pick(drag.i);drag=null};
+cv.onpointerdown=e=>{e.preventDefault();const[x,y]=pos(e);cv.setPointerCapture(e.pointerId);
+for(let j=S.st.length-1;j>=0;j--){const t=S.st[j],[hw,hh]=sb(t);if(Math.abs(x-t.x)<Math.max(hw+18, t.s*.9)&&Math.abs(y-t.y)<Math.max(hh+18, t.s*.9)){S.ss=j;drag={t:"s",s:t,x,y,m:0,lastClientY:e.clientY};ui();return}}
+S.ss=-1;const i=[0,1,2,3].find(i=>{const cy=PAD+i*(CH+photoGap);return x>=PX&&x<=PX+CW&&y>=cy&&y<=cy+CH});if(i==null){ui();return}S.sel=i;drag={t:"c",i,x,y,m:0,lastClientY:e.clientY};ui()};
+cv.onpointermove=e=>{if(!drag)return;e.preventDefault();let[x,y]=pos(e),dx=x-drag.x,dy=y-drag.y;drag.m+=Math.abs(dx)+Math.abs(dy);
+// Bidirectional edge-pan on mobile while a sticker is held:
+// drag near the bottom to reveal lower content, near the top to reveal upper content.
+let autoPanned=false;
+if(drag.t==="s"&&matchMedia('(max-width:899px)').matches&&stripEl){
+ const r=stripEl.getBoundingClientRect(),step=e.clientY-(drag.lastClientY??e.clientY),edge=Math.min(48,r.height*.2);
+ const oldOffset=mobilePreviewOffset;
+ if(e.clientY>r.bottom-edge&&step>0){mobilePreviewOffset-=Math.max(step*2.4,5);autoPanned=true;}
+ else if(e.clientY<r.top+edge&&step<0){mobilePreviewOffset+=Math.max(Math.abs(step)*2.4,5);autoPanned=true;}
+ if(autoPanned){applyMobilePreview();}
+}
+if(drag.t==="s"){drag.s.x+=dx;drag.s.y+=dy;}else if(S.c[drag.i].b){S.c[drag.i].x+=dx;S.c[drag.i].y+=dy}drag.x=x;drag.y=y;drag.lastClientY=e.clientY;render()};
+cv.onpointerup=()=>{if(drag&&drag.t=="c"&&!S.c[drag.i].b&&drag.m<6)pick(drag.i);drag=null};cv.onpointercancel=()=>{drag=null};
 cv.addEventListener("wheel",e=>{const k=S.c[S.sel];if(!k.b)return;e.preventDefault();zset(k.z*(e.deltaY<0?1.06:.94))},{passive:false});
 addEventListener("dragover",e=>e.preventDefault());addEventListener("drop",e=>{e.preventDefault();add(e.dataTransfer.files,null)});
 const inApp=()=>/KAKAOTALK|NAVER\(inapp|Instagram|FBAN|FBAV|Line\/|DaumApps|; wv\)/i.test(navigator.userAgent||""),isMob=()=>/Android|iPhone|iPad|iPod/i.test(navigator.userAgent||"")||(navigator.maxTouchPoints>1&&/Mac/.test(navigator.platform||""));
 let DU="",DM="dl";
-async function exp(){await Promise.all([document.fonts.load('56px "'+FONTS[S.ft][1]+'"',S.cap+S.dv+"0123456789.-/ 인생네컷"),document.fonts.load('44px "Jua"',"인생네컷 ✦")]);const o=document.createElement("canvas");o.width=W*2;o.height=H*2;draw(o.getContext("2d"),2,false);DU=isMob()||inApp()?o.toDataURL("image/jpeg",.95):"";return new Promise(r=>o.toBlob(r,"image/png"))}
+async function exp(){await Promise.all([document.fonts.load('56px "'+FONTS[S.ft][1]+'"',S.cap+S.dv+"0123456789.-/ 인생네컷"),document.fonts.load(`44px "${(FONTS[logoFont]||FONTS[0])[1]}"`,logoText)]);const o=document.createElement("canvas");o.width=W*2;o.height=H*2;draw(o.getContext("2d"),2,false);DU=isMob()||inApp()?o.toDataURL("image/jpeg",.95):"";return new Promise(r=>o.toBlob(r,"image/png"))}
 $("save").onclick=async()=>{if($("save").disabled)return;$("save").disabled=true;$("busy").hidden=false;try{await new Promise(r=>requestAnimationFrame(()=>setTimeout(r,40)));blob=await exp();if(!blob)throw new Error("blob");$("out").src=DU||URL.createObjectURL(blob);const f0=new File([blob],"life4cut.png",{type:"image/png"}),cs=!!(isMob()&&navigator.canShare&&navigator.canShare({files:[f0]}));DM=DL||!inApp()?"dl":cs?"share":"none";$("dls").hidden=DM=="none";$("dls").textContent=DM=="share"?"이미지 공유":"파일로 저장";$("tip").innerHTML=isMob()?"👆 이미지를 <b>길게 눌러</b> 저장하세요":"아래 <b>파일로 저장</b> 버튼을 눌러 저장하세요";$("dh").hidden=!inApp();$("busy").hidden=true;$("dlg").showModal()}catch(e){console.error(e);alert("이미지를 만들지 못했어요. Chrome·Safari 같은 기본 브라우저에서 다시 시도해 주세요.")}finally{$("busy").hidden=true;$("save").disabled=false}};
 $("dls").onclick=async()=>{if(DL){try{await DL.save({filename:"life4cut.png",data:blob})}catch(e){}return}
 const f=new File([blob],"life4cut.png",{type:"image/png"});
@@ -203,7 +323,17 @@ function openExt(){const u=location.href.split("#")[0],ua=navigator.userAgent||"
 $("ex").onclick=openExt;if(inApp())document.querySelectorAll(".iab").forEach(e=>e.hidden=false);
 $("dlx").onclick=()=>$("dlg").close();
 (async()=>{try{DL=await claude.use("downloads")}catch(e){}})();
-ui();Promise.all([document.fonts.load('44px "Jua"',"인생네컷"),document.fonts.load('500 26px "Noto Sans KR"',"+ 사진 추가"),document.fonts.load('56px "Jua"',"0123456789.-")]).then(render).catch(()=>{});
+
+/* Mobile preview pan: drag the empty sides of the preview to move through the enlarged strip. */
+let mobilePreviewOffset=0, previewPan=null;
+const stripEl=document.querySelector('.strip');
+function applyMobilePreview(){if(!stripEl||!cv)return;const mobile=matchMedia('(max-width:899px)').matches;if(!mobile){cv.style.transform='';stripEl.style.touchAction='';return;}const scale=cv.clientWidth/cv.width;const h=cv.height*scale;const view=stripEl.clientHeight;const max=Math.max(0,h-view);mobilePreviewOffset=Math.max(-max,Math.min(0,mobilePreviewOffset));cv.style.transform=`translate3d(0,${mobilePreviewOffset}px,0)`;}
+stripEl.addEventListener('pointerdown',e=>{if(!matchMedia('(max-width:899px)').matches||e.target===cv)return;e.preventDefault();previewPan={y:e.clientY,offset:mobilePreviewOffset};stripEl.setPointerCapture(e.pointerId);});
+stripEl.addEventListener('pointermove',e=>{if(!previewPan)return;e.preventDefault();const dy=e.clientY-previewPan.y;mobilePreviewOffset=previewPan.offset+(dy*1.45);applyMobilePreview();});
+stripEl.addEventListener('pointerup',()=>{previewPan=null;});stripEl.addEventListener('pointercancel',()=>{previewPan=null;});
+addEventListener('resize',applyMobilePreview);
+
+ui();Promise.all([document.fonts.load('44px "Jua"',"인생네컷"),document.fonts.load('500 26px "Noto Sans KR"',"+ 사진 추가"),document.fonts.load('56px "Jua"',"0123456789.-") ]).then(()=>{render();applyMobilePreview()}).catch(()=>{});
 </script>
 </body>
 </html>
